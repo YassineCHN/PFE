@@ -13,7 +13,11 @@ def controleur_form(request):
     Vue pour afficher le formulaire de recherche d'occupation de siège par le contrôleur
     """
     return render(request, 'train_api/controleur_form.html')
-
+def gestionnaire_form(request):
+    """
+    Vue pour afficher le formulaire du gestionnaire pour les taux d'occupation
+    """
+    return render(request, 'train_api/gestionnaire_form.html')
 def controleur_result(request):
     """
     Vue pour traiter le formulaire et afficher les résultats de l'occupation d'un siège
