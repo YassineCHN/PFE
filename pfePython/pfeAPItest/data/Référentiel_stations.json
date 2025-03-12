@@ -1,0 +1,21 @@
+[
+    {"codeUIC":"455646546456","label":"TEST","shortLabel":"TEST","longLabel":"TEST"},
+    {"codeUIC":"87654321","label":"Paris Austerlitz","shortLabel":"Paris Auster","longLabel":"Paris Austerlitz"},
+    {"codeUIC":"87654322","label":"Les Aubrais","shortLabel":"Les Aubrais","longLabel":"Les Aubrais"},
+    {"codeUIC":"87654323","label":"Vierzon","shortLabel":"Vierzon","longLabel":"Vierzon"},
+    {"codeUIC":"87654324","label":"Issoudun","shortLabel":"Issoudun","longLabel":"Issoudun"},
+    {"codeUIC":"87654325","label":"Châteauroux","shortLabel":"Châteauroux","longLabel":"Châteauroux"},
+    {"codeUIC":"87654326","label":"Argenton-sur-Creuse","shortLabel":"Argenton/C.","longLabel":"Argenton-sur-Creuse"},
+    {"codeUIC":"87654327","label":"La Souterraine","shortLabel":"La Souterrai","longLabel":"La Souterraine"},
+    {"codeUIC":"87654328","label":"Limoges-Bénédictins","shortLabel":"Limoges","longLabel":"Limoges Bénédictins"},
+    {"codeUIC":"87654329","label":"Uzerche","shortLabel":"Uzerche","longLabel":"Uzerche"},
+    {"codeUIC":"87594330","label":"Brive-la-Gaillarde","shortLabel":"Brive-la-G.","longLabel":"Brive-la-Gaillarde"},
+    {"codeUIC":"87594331","label":"Souillac","shortLabel":"Souillac", "longLabel":"Souillac"},
+    {"codeUIC":"87594332","label":"Gourdon","shortLabel":"Gourdon","longLabel":"Gourdon"},
+    {"codeUIC":"87594333","label":"Cahors","shortLabel":"Cahors","longLabel":"Cahors"},
+    {"codeUIC":"87594334","label":"Caussade","shortLabel":"Caussade","longLabel":"Caussade"},
+    {"codeUIC":"87594335","label":"Montauban-Ville-Bourbon","shortLabel":"Montauban","longLabel":"Montauban Ville Bourbon"},
+    {"codeUIC":"87594336","label":"Toulouse-Matabiau","shortLabel":"Toulouse","longLabel":"Toulouse Matabiau"},
+    {"codeUIC":"87547000","label":"TEST","shortLabel":"TESTAZEAZ","longLabel":"TEST"},
+    {"codeUIC":"87611004","label":"FIN","shortLabel":"FIN","longLabel":"FIN"}
+]

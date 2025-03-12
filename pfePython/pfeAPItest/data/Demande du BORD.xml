@@ -1,0 +1,24 @@
+<!-- POST /reservations -->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://sncf.fr/webservices/GetReservations/V1">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <v1:GetReservations>
+            <in>
+                <reservationsInfos>
+                    <header>
+                        <vehicleName>TGV_000622</vehicleName>
+                        <messageDate>2024-12-11T12:48:29Z</messageDate>
+                    </header>
+                    <vehicleJourney>
+                        <vehicleJourneyName>009577</vehicleJourneyName>
+                    </vehicleJourney>
+                    <reservations>
+                        <vehicleJourneyDate>2024-12-11T13:37:00Z</vehicleJourneyDate>
+                        <nextStopPointExternalCode>87592006</nextStopPointExternalCode>
+                    </reservations>
+                </reservationsInfos>
+            </in>
+        </v1:GetReservations>
+    </soapenv:Body>
+</soapenv:Envelope>
