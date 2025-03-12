@@ -42,6 +42,8 @@ urlpatterns = [
         
     re_path(r'^message/occupationSiege/trainId=(?P<numero_train_commercial>[^&]+)&voiture=(?P<numero_voiture>[^&]+)&siege=(?P<numero_siege>[^&]+)&journeyDate=(?P<date_debut_mission>[^&]+)$',
         api.api_occupation_siege, name='api_controleur_message'),
+    re_path(r'^API/tauxOccupationDesserteSpecifique/(?P<numero_train_commercial>[^&]+)&(?P<code_uic_desserte>[^&]+)&(?P<date_debut_mission>[^&]+)$',
+    api.api_taux_occupation_desserte_specifique, name='api_taux_occupation_desserte_specifique'),
    # re_path(r'^API/occupationSiege/(?P<numero_train_commercial>[^&]+)&(?P<numero_voiture>[^&]+)&(?P<numero_siege>[^&]+)&(?P<date_debut_mission>[^&]+)$',
     #    api.api_occupation_siege, name='api_occupation_siege'),
     # Format message original (pour compatibilité)

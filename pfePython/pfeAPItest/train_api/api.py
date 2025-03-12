@@ -674,3 +674,112 @@ def api_export_csv(request, numero_train_commercial, date_debut_mission):
     response['Content-Disposition'] = f'attachment; filename="{numero_train_commercial}_{date_debut_mission}.csv"'
     
     return response
+
+def api_taux_occupation_desserte_specifique(request, numero_train_commercial, code_uic_desserte, date_debut_mission):
+    """
+    API pour récupérer le taux d'occupation pour une desserte spécifique
+    
+    URL: /API/tauxOccupationDesserteSpecifique/<numero_train_commercial>&<code_uic_desserte>&<date_debut_mission>
+    
+    Returns:
+        JsonResponse: Taux d'occupation détaillé pour la desserte spécifiée
+    """
+    data_folder = os.path.join(settings.BASE_DIR, 'data/')
+    train_file = f"{data_folder}{numero_train_commercial}_{date_debut_mission}.json"
+    stations_file = f"{data_folder}Référentiel_stations.json"
+    
+    train_data = load_json_file(train_file)
+    stations_data = load_json_file(stations_file)
+    
+    if not train_data or not stations_data:
+        return JsonResponse({"error": "Aucune donnée d'occupation des places disponible"}, status=404)
+    
+    # Récupérer toutes les dessertes triées par rang
+    dessertes = sorted(train_data.get("dessertes", []), key=lambda x: int(x.get("rang", 0)))
+    
+    # Trouver la desserte spécifique
+    target_desserte = None
+    for desserte in dessertes:
+        if desserte.get("codeUIC") == code_uic_desserte:
+            target_desserte = desserte
+            break
+    
+    if not target_desserte:
+        return JsonResponse({"error": f"Aucune desserte trouvée avec le code UIC {code_uic_desserte}"}, status=404)
+    
+    # Récupérer le nom de la station
+    station_name = get_station_name(code_uic_desserte, stations_data)
+    
+    # Calculer le taux d'occupation pour cette desserte
+    occupied_seats = 0
+    total_seats = 0
+    coach_occupation = {}  # {coach_number: {total: X, occupied: Y}}
+    seat_details = []  # Liste détaillée de chaque siège
+    
+    for rame in target_desserte.get("rames", []):
+        for voiture in rame.get("voitures", []):
+            coach_number = voiture.get("numero")
+            
+            if coach_number not in coach_occupation:
+                coach_occupation[coach_number] = {"total": 0, "occupied": 0}
+            
+            for place in voiture.get("places", []):
+                seat_number = place.get("numero")
+                total_seats += 1
+                coach_occupation[coach_number]["total"] += 1
+                
+                occupation = place.get("occupation", {})
+                statut = occupation.get("statut")
+                flux_montant = occupation.get("fluxMontant", False)
+                flux_descendant = occupation.get("fluxDescendant", False)
+                
+                is_occupied = (statut == "OCCUPE")
+                
+                if is_occupied:
+                    occupied_seats += 1
+                    coach_occupation[coach_number]["occupied"] += 1
+                
+                # Ajouter les détails du siège
+                seat_details.append({
+                    "coach": coach_number,
+                    "seat": seat_number,
+                    "status": statut,
+                    "flux_montant": flux_montant,
+                    "flux_descendant": flux_descendant
+                })
+    
+    # Calculer le taux d'occupation
+    desserte_rate = 0
+    if total_seats > 0:
+        desserte_rate = (occupied_seats / total_seats) * 100
+    
+    # Calculer le taux d'occupation par voiture
+    coach_stats = []
+    for coach, stats in coach_occupation.items():
+        coach_rate = 0
+        if stats["total"] > 0:
+            coach_rate = (stats["occupied"] / stats["total"]) * 100
+        
+        coach_stats.append({
+            "coach_number": coach,
+            "total_seats": stats["total"],
+            "occupied_seats": stats["occupied"],
+            "occupation_rate": round(coach_rate, 2)
+        })
+    
+    result = {
+        "train_number": numero_train_commercial,
+        "journey_date": date_debut_mission,
+        "desserte": {
+            "code_uic": code_uic_desserte,
+            "station_name": station_name,
+            "rang": target_desserte.get("rang"),
+            "total_seats": total_seats,
+            "occupied_seats": occupied_seats,
+            "occupation_rate": round(desserte_rate, 2)
+        },
+        "coach_occupation": coach_stats,
+        "seat_details": seat_details
+    }
+    
+    return JsonResponse(result)

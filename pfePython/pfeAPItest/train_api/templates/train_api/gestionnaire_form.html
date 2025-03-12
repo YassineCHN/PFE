@@ -1,13 +1,3 @@
-# Ajout à train_api/views.py
-
-def gestionnaire_form(request):
-    """
-    Vue pour afficher le formulaire du gestionnaire pour les taux d'occupation
-    """
-    return render(request, 'train_api/gestionnaire_form.html')
-
-# Fichier train_api/templates/train_api/gestionnaire_form.html
-"""
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -57,17 +47,26 @@ def gestionnaire_form(request):
                                         <option value="global">Global (tout le train)</option>
                                         <option value="siege">Par siège</option>
                                         <option value="voiture">Par voiture</option>
-                                        <option value="desserte">Par desserte</option>
+                                        <option value="desserte">Toutes les dessertes</option>
+                                        <option value="desserte_specifique">Desserte spécifique</option>
                                         <option value="export">Export CSV</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4 siege-voiture-options">
                                     <label for="coach_number" class="form-label">Numéro de voiture</label>
-                                    <input type="text" class="form-control" id="coach_number">
+                                    <input type="number" class="form-control" id="coach_number">
                                 </div>
                                 <div class="col-md-4 siege-options">
                                     <label for="seat_number" class="form-label">Numéro de siège</label>
-                                    <input type="text" class="form-control" id="seat_number">
+                                    <input type="number" class="form-control" id="seat_number">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3 desserte-options">
+                                <div class="col-md-12">
+                                    <label for="desserte_id" class="form-label">Code UIC de la desserte</label>
+                                    <input type="text" class="form-control" id="desserte_id">
+                                    <div class="form-text">Exemples : 87654328 (Limoges), 87594330 (Brive), 87594336 (Toulouse)</div>
                                 </div>
                             </div>
                             
@@ -94,6 +93,7 @@ def gestionnaire_form(request):
             const apiTypeSelect = document.getElementById('api_type');
             const siegeVoitureOptions = document.querySelectorAll('.siege-voiture-options');
             const siegeOptions = document.querySelectorAll('.siege-options');
+            const desserteOptions = document.querySelector('.desserte-options');
             const occupationForm = document.getElementById('occupationForm');
             const resultContainer = document.getElementById('resultContainer');
             const resultJson = document.getElementById('resultJson');
@@ -107,6 +107,7 @@ def gestionnaire_form(request):
                 // Cacher tous les champs optionnels
                 siegeVoitureOptions.forEach(el => el.style.display = 'none');
                 siegeOptions.forEach(el => el.style.display = 'none');
+                desserteOptions.style.display = 'none';
                 
                 // Afficher les champs pertinents selon le type sélectionné
                 if (selectedValue === 'siege') {
@@ -114,6 +115,8 @@ def gestionnaire_form(request):
                     siegeOptions.forEach(el => el.style.display = 'block');
                 } else if (selectedValue === 'voiture') {
                     siegeVoitureOptions.forEach(el => el.style.display = 'block');
+                } else if (selectedValue === 'desserte_specifique') {
+                    desserteOptions.style.display = 'block';
                 }
             });
             
@@ -129,6 +132,7 @@ def gestionnaire_form(request):
                 const apiType = apiTypeSelect.value;
                 const coachNumber = document.getElementById('coach_number').value;
                 const seatNumber = document.getElementById('seat_number').value;
+                const desserteId = document.getElementById('desserte_id').value;
                 
                 let apiUrl = '';
                 
@@ -145,6 +149,9 @@ def gestionnaire_form(request):
                         break;
                     case 'desserte':
                         apiUrl = `/API/tauxOccupationDesserte/${trainNumber}&${journeyDate}`;
+                        break;
+                    case 'desserte_specifique':
+                        apiUrl = `/API/tauxOccupationDesserteSpecifique/${trainNumber}&${desserteId}&${journeyDate}`;
                         break;
                     case 'export':
                         // Pour l'export CSV, rediriger directement vers l'URL
@@ -181,4 +188,3 @@ def gestionnaire_form(request):
     </script>
 </body>
 </html>
-"""

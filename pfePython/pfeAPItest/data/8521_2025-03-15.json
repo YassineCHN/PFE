@@ -1,0 +1,3634 @@
+{
+  "circulation": {
+    "numero": "8521",
+    "date": "2025-03-15",
+    "codeOperateur": "1187",
+    "typeMode": "FERRE"
+  },
+  "dessertes": [
+    {
+      "codeUIC": "87391003",
+      "rang": "0",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codeUIC": "87394007",
+      "rang": "1",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codeUIC": "87515286",
+      "rang": "2",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codeUIC": "87575001",
+      "rang": "3",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codeUIC": "87571000",
+      "rang": "4",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codeUIC": "87583005",
+      "rang": "5",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true,
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxDescendant": true
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codeUIC": "87581009",
+      "rang": "6",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE",
+                    "fluxMontant": true
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "OCCUPE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codeUIC": "87581008",
+      "rang": "7",
+      "rames": [
+        {
+          "voitures": [
+            {
+              "numero": "1",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "2",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "PREMIERE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "3",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "4",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "5",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "6",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "7",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            },
+            {
+              "numero": "8",
+              "places": [
+                {
+                  "numero": "1",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE",
+                    "fluxDescendant": true
+                  }
+                },
+                {
+                  "numero": "2",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_BASSE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "3",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "4",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                },
+                {
+                  "numero": "5",
+                  "classe": "SECONDE",
+                  "compartiment": "1",
+                  "niveau": "SALLE_HAUTE",
+                  "type": "PLACE_ASSISE",
+                  "occupation": {
+                    "statut": "LIBRE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
