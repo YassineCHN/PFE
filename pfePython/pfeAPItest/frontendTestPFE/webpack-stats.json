@@ -1,0 +1,21 @@
+{
+  "status": "done",
+  "assets": {
+    "main-7388e25117f7a27a6054.js": {
+      "name": "main-7388e25117f7a27a6054.js",
+      "path": "C:\\Users\\charl\\PFE_GIT\\pfePython\\pfeAPItest\\frontendTestPFE\\static\\frontendTestPFE\\main-7388e25117f7a27a6054.js",
+      "publicPath": "/static/frontendTestPFE/main-7388e25117f7a27a6054.js"
+    },
+    "main-7388e25117f7a27a6054.js.LICENSE.txt": {
+      "name": "main-7388e25117f7a27a6054.js.LICENSE.txt",
+      "path": "C:\\Users\\charl\\PFE_GIT\\pfePython\\pfeAPItest\\frontendTestPFE\\static\\frontendTestPFE\\main-7388e25117f7a27a6054.js.LICENSE.txt",
+      "publicPath": "/static/frontendTestPFE/main-7388e25117f7a27a6054.js.LICENSE.txt"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main-7388e25117f7a27a6054.js"
+    ]
+  },
+  "publicPath": "/static/frontendTestPFE/"
+}
