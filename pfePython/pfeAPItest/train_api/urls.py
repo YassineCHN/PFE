@@ -8,6 +8,10 @@ urlpatterns = [
     path('controleur/', views.controleur_form, name='controleur_form'),
     path('controleur/result/', views.controleur_result, name='controleur_result'),
     path('gestionnaire/', views.gestionnaire_form, name='gestionnaire_form'),
+    # Nouvelle URL pour la page de normalisation JSON (simplifiée)
+    path('normalize/', views.normalize_json_page, name='normalize_json_page'),
+    # URL pour la recherche de gare par code UIC
+    path('find-station/<str:uic_code>/', views.find_station, name='find_station'),
     # URLs API
     re_path(r'^API/occupationDesPlaces/(?P<numero_train_commercial>[^&]+)&(?P<station_id>[^&]+)&(?P<date_debut_mission>[^&]+)$',
         api.api_occupation_des_places, name='api_occupation_des_places'),
