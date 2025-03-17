@@ -51,13 +51,23 @@ def controleur_result(request):
 
 def normalize_json_page(request):
     """
-    Affiche et traite la page pour normaliser un fichier JSON et modifier des enregistrements
+    Affiche et traite la page pour normaliser un fichier JSON et gérer les gares (ajout, modification, suppression)
     """
     context = {}
     
     if request.method == 'POST':
-        # comme en java on un paramètre caché/hidden dans le form
+        # Récupérer l'action demandée
         action = request.POST.get('action', '')
+        
+        # Chemin du fichier dans le dossier data
+        data_folder = os.path.join(settings.BASE_DIR, 'data')
+        
+        # Si le dossier n'existe pas, le créer
+        if not os.path.exists(data_folder):
+            os.makedirs(data_folder)
+        
+        # Définir le chemin du fichier de référentiel
+        stations_file = os.path.join(data_folder, 'Référentiel_stations.json')
         
         # Traitement de la normalisation du fichier
         if action == 'normalize' and 'file' in request.FILES:
@@ -67,16 +77,6 @@ def normalize_json_page(request):
             if not uploaded_file.name.lower().endswith('.json'):
                 context['error'] = 'Le fichier doit être au format JSON.'
                 return render(request, 'train_api/normalize_json.html', context)
-            
-            # Chemin du fichier dans le dossier data
-            data_folder = os.path.join(settings.BASE_DIR, 'data')
-            
-            # Si le dossier n'existe pas, le créer
-            if not os.path.exists(data_folder):
-                os.makedirs(data_folder)
-            
-            # Définir le chemin de destination
-            destination_path = os.path.join(data_folder, 'Référentiel_stations.json')
             
             try:
                 # Créer un fichier temporaire pour stocker le fichier uploadé
@@ -125,14 +125,14 @@ def normalize_json_page(request):
                 
                 # Copier le fichier normalisé vers la destination finale
                 with open(temp_file_path, 'rb') as src_file:
-                    with open(destination_path, 'wb') as dst_file:
+                    with open(stations_file, 'wb') as dst_file:
                         dst_file.write(src_file.read())
                 
                 # Supprimer le fichier temporaire
                 os.unlink(temp_file_path)
                 
                 # Obtenir la taille finale du fichier
-                final_size = os.path.getsize(destination_path)
+                final_size = os.path.getsize(stations_file)
                 
                 context['success'] = True
                 context['success_message'] = 'Le fichier a été normalisé avec succès.'
@@ -159,10 +159,6 @@ def normalize_json_page(request):
                 return render(request, 'train_api/normalize_json.html', context)
             
             try:
-                # Chemin du fichier dans le dossier data
-                data_folder = os.path.join(settings.BASE_DIR, 'data')
-                stations_file = os.path.join(data_folder, 'Référentiel_stations.json')
-                
                 # Charger les données du fichier
                 stations_data = load_json_file(stations_file)
                 
@@ -194,8 +190,89 @@ def normalize_json_page(request):
                 
             except Exception as e:
                 context['error'] = f'Une erreur est survenue lors de la mise à jour des informations: {str(e)}'
+        
+        # Traitement de l'ajout d'une gare
+        elif action == 'add':
+            uic_code = request.POST.get('uic_code', '')
+            label = request.POST.get('label', '')
+            short_label = request.POST.get('short_label', '')
+            long_label = request.POST.get('long_label', '')
+            
+            if not uic_code or not label or not short_label or not long_label:
+                context['error'] = 'Tous les champs sont obligatoires.'
+                return render(request, 'train_api/normalize_json.html', context)
+            
+            try:
+                # Charger les données du fichier
+                stations_data = load_json_file(stations_file)
+                
+                if not stations_data:
+                    # Si le fichier n'existe pas ou est vide, créer une nouvelle liste
+                    stations_data = []
+                
+                # Vérifier si une gare avec ce code UIC existe déjà
+                for station in stations_data:
+                    if station.get('codeUIC') == uic_code:
+                        context['error'] = f'Une gare avec le code UIC {uic_code} existe déjà.'
+                        return render(request, 'train_api/normalize_json.html', context)
+                
+                # Créer un nouveau dictionnaire pour la gare
+                new_station = {
+                    'codeUIC': uic_code,
+                    'label': label,
+                    'shortLabel': short_label,
+                    'longLabel': long_label
+                }
+                
+                # Ajouter la nouvelle gare à la liste
+                stations_data.append(new_station)
+                
+                # Enregistrer les données mises à jour
+                with open(stations_file, 'w', encoding='utf-8') as f:
+                    json.dump(stations_data, f, ensure_ascii=False, indent=2)
+                
+                context['success'] = True
+                context['success_message'] = f'La gare avec le code UIC {uic_code} a été ajoutée avec succès.'
+                
+            except Exception as e:
+                context['error'] = f'Une erreur est survenue lors de l\'ajout de la gare: {str(e)}'
+        
+        # Traitement de la suppression d'une gare
+        elif action == 'delete':
+            uic_code = request.POST.get('uic_code', '')
+            
+            if not uic_code:
+                context['error'] = 'Le code UIC est obligatoire.'
+                return render(request, 'train_api/normalize_json.html', context)
+            
+            try:
+                # Charger les données du fichier
+                stations_data = load_json_file(stations_file)
+                
+                if not stations_data:
+                    context['error'] = 'Impossible de charger le fichier de référentiel des gares.'
+                    return render(request, 'train_api/normalize_json.html', context)
+                
+                # Rechercher la gare à supprimer
+                initial_count = len(stations_data)
+                stations_data = [station for station in stations_data if station.get('codeUIC') != uic_code]
+                
+                if len(stations_data) == initial_count:
+                    context['error'] = f'Aucune gare trouvée avec le code UIC: {uic_code}'
+                    return render(request, 'train_api/normalize_json.html', context)
+                
+                # Enregistrer les données mises à jour
+                with open(stations_file, 'w', encoding='utf-8') as f:
+                    json.dump(stations_data, f, ensure_ascii=False, indent=2)
+                
+                context['success'] = True
+                context['success_message'] = f'La gare avec le code UIC {uic_code} a été supprimée avec succès.'
+                
+            except Exception as e:
+                context['error'] = f'Une erreur est survenue lors de la suppression de la gare: {str(e)}'
     
     return render(request, 'train_api/normalize_json.html', context)
+
 def find_station(request, uic_code):
     """
     API pour rechercher une gare par son code UIC

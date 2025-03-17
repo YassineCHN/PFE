@@ -18,7 +18,13 @@
                         <button class="nav-link active" id="normalize-tab" data-bs-toggle="tab" data-bs-target="#normalize" type="button" role="tab" aria-selected="true">Normaliser un fichier</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="edit-tab" data-bs-toggle="tab" data-bs-target="#edit" type="button" role="tab" aria-selected="false">Modifier un enregistrement</button>
+                        <button class="nav-link" id="edit-tab" data-bs-toggle="tab" data-bs-target="#edit" type="button" role="tab" aria-selected="false">Modifier une gare</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button" role="tab" aria-selected="false">Ajouter une gare</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="delete-tab" data-bs-toggle="tab" data-bs-target="#delete" type="button" role="tab" aria-selected="false">Supprimer une gare</button>
                     </li>
                 </ul>
                 
@@ -102,6 +108,101 @@
                             Aucune gare trouvée avec ce code UIC.
                         </div>
                     </div>
+                    
+                    <!-- Onglet Ajouter -->
+                    <div class="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab">
+                        <p class="lead mb-4">Ajoutez une nouvelle gare au référentiel.</p>
+                        
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h4 class="mb-0">Ajouter une nouvelle gare</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="add">
+                                    
+                                    <div class="mb-3">
+                                        <label for="add-uic-code" class="form-label">Code UIC</label>
+                                        <input type="text" class="form-control" id="add-uic-code" name="uic_code" required>
+                                        <div class="form-text">Code UIC unique de la gare (ex: 87654321)</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="add-label" class="form-label">Nom standard (label)</label>
+                                        <input type="text" class="form-control" id="add-label" name="label" required>
+                                        <div class="form-text">Nom complet de la gare (ex: Paris Austerlitz)</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="add-short-label" class="form-label">Nom court (shortLabel)</label>
+                                        <input type="text" class="form-control" id="add-short-label" name="short_label" required>
+                                        <div class="form-text">Version abrégée du nom (ex: Paris Auster)</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="add-long-label" class="form-label">Nom long (longLabel)</label>
+                                        <input type="text" class="form-control" id="add-long-label" name="long_label" required>
+                                        <div class="form-text">Nom complet avec détails supplémentaires si nécessaire</div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-success">Ajouter la gare</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Onglet Supprimer -->
+                    <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="delete-tab">
+                        <p class="lead mb-4">Supprimez une gare du référentiel en recherchant son code UIC.</p>
+                        
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <form id="delete-search-form">
+                                    <div class="mb-3">
+                                        <label for="delete-uic-code" class="form-label">Code UIC de la gare à supprimer</label>
+                                        <input type="text" class="form-control" id="delete-uic-code" name="uic_code" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Rechercher</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Formulaire de confirmation de suppression (initialement caché) -->
+                        <div id="delete-confirm-container" class="card d-none">
+                            <div class="card-header bg-danger text-white">
+                                <h4 class="mb-0">Confirmer la suppression</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-warning">
+                                    <h5>Vous êtes sur le point de supprimer la gare suivante :</h5>
+                                    <ul class="list-group mb-3">
+                                        <li class="list-group-item"><strong>Code UIC:</strong> <span id="delete-info-uic"></span></li>
+                                        <li class="list-group-item"><strong>Nom:</strong> <span id="delete-info-label"></span></li>
+                                        <li class="list-group-item"><strong>Nom court:</strong> <span id="delete-info-short"></span></li>
+                                        <li class="list-group-item"><strong>Nom long:</strong> <span id="delete-info-long"></span></li>
+                                    </ul>
+                                    <p class="mb-0"><strong>Cette action est irréversible.</strong> Êtes-vous sûr de vouloir continuer ?</p>
+                                </div>
+                                
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" id="delete-confirm-uic" name="uic_code">
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-secondary" id="delete-cancel-btn">Annuler</button>
+                                        <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Message d'erreur pour la recherche de suppression -->
+                        <div id="delete-search-error" class="alert alert-danger mt-3 d-none">
+                            Aucune gare trouvée avec ce code UIC.
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Messages de résultat/erreur -->
@@ -170,6 +271,17 @@
             const editShortLabel = document.getElementById('edit-short-label');
             const editLongLabel = document.getElementById('edit-long-label');
 
+            // Références pour la fonction de suppression
+            const deleteSearchForm = document.getElementById('delete-search-form');
+            const deleteConfirmContainer = document.getElementById('delete-confirm-container');
+            const deleteSearchError = document.getElementById('delete-search-error');
+            const deleteInfoUic = document.getElementById('delete-info-uic');
+            const deleteInfoLabel = document.getElementById('delete-info-label');
+            const deleteInfoShort = document.getElementById('delete-info-short');
+            const deleteInfoLong = document.getElementById('delete-info-long');
+            const deleteConfirmUic = document.getElementById('delete-confirm-uic');
+            const deleteCancelBtn = document.getElementById('delete-cancel-btn');
+
             // Fonction pour formater la taille du fichier
             function formatBytes(bytes, decimals = 2) {
                 if (bytes === 0) return '0 Bytes';
@@ -199,7 +311,7 @@
                 });
             }
 
-            // Gestion du formulaire de recherche
+            // Gestion du formulaire de recherche pour modification
             if (searchForm) {
                 searchForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -234,6 +346,53 @@
                             searchError.classList.remove('d-none');
                             console.error('Erreur:', error);
                         });
+                });
+            }
+
+            // Gestion du formulaire de recherche pour suppression
+            if (deleteSearchForm) {
+                deleteSearchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const uicCode = document.getElementById('delete-uic-code').value.trim();
+                    if (!uicCode) return;
+                    
+                    // Masquer les messages précédents
+                    deleteConfirmContainer.classList.add('d-none');
+                    deleteSearchError.classList.add('d-none');
+                    
+                    // Appel AJAX pour rechercher la gare
+                    fetch(`/find-station/${uicCode}/`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Gare non trouvée');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            // Remplir les informations de confirmation
+                            deleteInfoUic.textContent = data.codeUIC;
+                            deleteInfoLabel.textContent = data.label;
+                            deleteInfoShort.textContent = data.shortLabel;
+                            deleteInfoLong.textContent = data.longLabel;
+                            deleteConfirmUic.value = data.codeUIC;
+                            
+                            // Afficher le formulaire de confirmation
+                            deleteConfirmContainer.classList.remove('d-none');
+                        })
+                        .catch(error => {
+                            // Afficher message d'erreur
+                            deleteSearchError.classList.remove('d-none');
+                            console.error('Erreur:', error);
+                        });
+                });
+            }
+
+            // Gestion du bouton d'annulation de suppression
+            if (deleteCancelBtn) {
+                deleteCancelBtn.addEventListener('click', function() {
+                    // Masquer le formulaire de confirmation
+                    deleteConfirmContainer.classList.add('d-none');
                 });
             }
         });
