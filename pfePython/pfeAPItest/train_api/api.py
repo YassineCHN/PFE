@@ -1,22 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import json
+
 import os
 import csv
+
 from io import StringIO
 from django.http import HttpResponse, JsonResponse,FileResponse
 from django.conf import settings
-
-def load_json_file(file_path):
-    """
-    Charge un fichier JSON depuis le chemin spécifié
-    """
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
-    except Exception as e:
-        print(f"Erreur lors du chargement du fichier {file_path}: {e}")
-        return None
+from train_api.utils.json_utils import load_json_file
 
 def get_station_name(code_uic, stations_data):
     """
