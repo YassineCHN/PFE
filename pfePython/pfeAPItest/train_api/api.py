@@ -3,7 +3,6 @@
 
 import os
 import csv
-
 from io import StringIO
 from django.http import HttpResponse, JsonResponse,FileResponse
 from django.conf import settings
@@ -771,6 +770,70 @@ def api_taux_occupation_desserte_specifique(request, numero_train_commercial, co
         },
         "coach_occupation": coach_stats,
         "seat_details": seat_details
+    }
+    
+    return JsonResponse(result)
+
+def api_passager_flow(request, numero_train_commercial, date_debut_mission):
+    """
+    API pour récupérer les données de flux de passagers (montées/descentes) pour un train
+    
+    URL: /API/fluxPassagers/<numero_train_commercial>&<date_debut_mission>
+    
+    Returns:
+        JsonResponse: Données de flux de passagers par desserte
+    """
+    data_folder = os.path.join(settings.BASE_DIR, 'data/')
+    train_file = f"{data_folder}{numero_train_commercial}_{date_debut_mission}.json"
+    stations_file = f"{data_folder}Référentiel_stations.json"
+    
+    train_data = load_json_file(train_file)
+    stations_data = load_json_file(stations_file)
+    
+    if not train_data or not stations_data:
+        return JsonResponse({"error": "Aucune donnée disponible"}, status=404)
+    
+    # Récupérer toutes les dessertes triées par rang
+    dessertes = sorted(train_data.get("dessertes", []), key=lambda x: int(x.get("rang", 0)))
+    
+    # Tableau pour stocker les données de flux
+    flow_data = []
+    
+    for desserte in dessertes:
+        desserte_code_uic = desserte.get("codeUIC")
+        desserte_rang = desserte.get("rang")
+        station_name = get_station_name(desserte_code_uic, stations_data)
+        
+        # Compteurs pour les montées et descentes
+        boarding_count = 0
+        alighting_count = 0
+        
+        for rame in desserte.get("rames", []):
+            for voiture in rame.get("voitures", []):
+                for place in voiture.get("places", []):
+                    occupation = place.get("occupation", {})
+                    flux_montant = occupation.get("fluxMontant", False)
+                    flux_descendant = occupation.get("fluxDescendant", False)
+                    
+                    if flux_montant:
+                        boarding_count += 1
+                    
+                    if flux_descendant:
+                        alighting_count += 1
+        
+        flow_data.append({
+            "desserte_rang": desserte_rang,
+            "desserte_code_uic": desserte_code_uic,
+            "station_name": station_name,
+            "boarding": boarding_count,
+            "alighting": alighting_count,
+            "net_flow": boarding_count - alighting_count
+        })
+    
+    result = {
+        "train_number": numero_train_commercial,
+        "journey_date": date_debut_mission,
+        "flow_data": flow_data
     }
     
     return JsonResponse(result)

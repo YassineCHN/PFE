@@ -48,7 +48,11 @@ def controleur_result(request):
     # Redirection vers le formulaire en cas d'accès direct à cette URL
     return redirect('controleur_form')
 
-
+def dashboard(request):
+    """
+    Vue pour afficher le tableau de bord d'occupation des trains
+    """
+    return render(request, 'train_api/dashboard.html')
 def normalize_json_page(request):
     """
     Affiche et traite la page pour normaliser un fichier JSON et gérer les gares (ajout, modification, suppression)

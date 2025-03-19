@@ -5,6 +5,7 @@ from . import api
 urlpatterns = [
     # URLs pour l'interface web
     path('', views.index, name='index'),
+    path('dashboard/', views.dashboard, name='dashboard'),
     path('controleur/', views.controleur_form, name='controleur_form'),
     path('controleur/result/', views.controleur_result, name='controleur_result'),
     path('gestionnaire/', views.gestionnaire_form, name='gestionnaire_form'),
@@ -18,7 +19,8 @@ urlpatterns = [
     # URLs API pour la fonctionnalité 2: Contrôleur - Occupation d'un siège sur l'ensemble du trajet
     re_path(r'^API/occupationSiege/(?P<numero_train_commercial>[^&]+)&(?P<numero_voiture>[^&]+)&(?P<numero_siege>[^&]+)&(?P<date_debut_mission>[^&]+)$',
         api.api_occupation_siege, name='api_occupation_siege'),
-    
+    re_path(r'^API/fluxPassagers/(?P<numero_train_commercial>[^&]+)&(?P<date_debut_mission>[^&]+)$',
+    api.api_passager_flow, name='api_passager_flow'),
     # URLs API pour la fonctionnalité 3: Gestionnaire - Taux d'occupation
     # Taux d'occupation global
     re_path(r'^API/tauxOccupation/(?P<numero_train_commercial>[^&]+)&(?P<date_debut_mission>[^&]+)$',
