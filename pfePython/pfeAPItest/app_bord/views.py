@@ -52,6 +52,8 @@ def bord_result(request):
         station_name = get_station_name(station_id, stations_data) if stations_data else None
         
         # Appel à l'API d'occupation des places (version réelle)
+        # si on voulait vraiment simuler l'appel à l'API, on pourrait le faire avec du javascript
+        # a voir pour les besoins de la présentation
         from app_bord.api import api_occupation_des_places
         
         # Créer une requête factice pour l'API
