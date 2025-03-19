@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNCF - Gestion des Places</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .hero-section {
+            background-color: #0061AF;
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        .card-dashboard {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+        }
+        .card-dashboard:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .card-img-top {
+            height: 160px;
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background-color: #0061AF;
+            border-color: #0061AF;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background-color: #004C8C;
+            border-color: #004C8C;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Sncf-logo.svg/2560px-Sncf-logo.svg.png" alt="Logo SNCF" height="60" class="mb-4">
+            <h1 class="display-4">Système de Gestion des Places</h1>
+            <p class="lead">Accédez aux interfaces pour gérer l'occupation des places dans les trains</p>
+        </div>
+    </div>
+
+    <!-- Contenu principal avec vignettes -->
+    <div class="container">
+        <div class="row">
+            <!-- Vignette BORD -->
+            <div class="col-md-4">
+                <div class="card card-dashboard">
+                    <div class="card-img-top" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Logo_TGV.svg/1280px-Logo_TGV.svg.png');"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Interface BORD (Train)</h5>
+                        <p class="card-text">Récupérez l'occupation des places pour une gare donnée afin de mettre à jour l'afficheur des sièges.</p>
+                        <a href="{% url 'app_bord:bord_index' %}" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vignette Contrôleur -->
+            <div class="col-md-4">
+                <div class="card card-dashboard">
+                    <div class="card-img-top" style="background-image: url('https://svgsilh.com/svg/308739.svg');"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Interface Contrôleur</h5>
+                        <p class="card-text">Consultez l'occupation d'un siège sur l'ensemble du trajet pour vérifier les billets.</p>
+                        <a href="{% url 'app_controleur:controleur_form' %}" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vignette Gestionnaire -->
+            <div class="col-md-4">
+                <div class="card card-dashboard">
+                    <div class="card-img-top" style="background-image: url('https://www.svgrepo.com/show/26312/search-analytics.svg');"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Interface Gestionnaire</h5>
+                        <p class="card-text">Visualisez le taux d'occupation du train sur l'ensemble du trajet pour une course donnée.</p>
+                        <a href="{% url 'app_gestionnaire:gestionnaire_form' %}" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pied de page -->
+    <footer class="footer mt-auto py-3" style="position: absolute; width: 100%; top : 100%;">
+        <div class="container text-center">
+            <p>© 2025 SNCF - Système de Gestion des Places</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire - Taux d'occupation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .result-container {
+            margin-top: 30px;
+            display: none;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    {% include "common_utils/navbar.html" with active_page="gestionnaire_form.html" %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h2 class="mb-4">Gestionnaire - Taux d'occupation</h2>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <form id="occupationForm" class="mb-4">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="train_number" class="form-label">Numéro de train</label>
+                                    <input type="text" class="form-control" id="train_number" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="journey_date" class="form-label">Date de circulation (YYYY-MM-DD)</label>
+                                    <input type="date" class="form-control" id="journey_date" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="api_type" class="form-label">Type de taux d'occupation</label>
+                                    <select class="form-select" id="api_type" required>
+                                        <option value="global">Global (tout le train)</option>
+                                        <option value="siege">Par siège</option>
+                                        <option value="voiture">Par voiture</option>
+                                        <option value="desserte">Toutes les dessertes</option>
+                                        <option value="desserte_specifique">Desserte spécifique</option>
+                                        <option value="export">Export CSV</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 siege-voiture-options">
+                                    <label for="coach_number" class="form-label">Numéro de voiture</label>
+                                    <input type="number" class="form-control" id="coach_number">
+                                </div>
+                                <div class="col-md-4 siege-options">
+                                    <label for="seat_number" class="form-label">Numéro de siège</label>
+                                    <input type="number" class="form-control" id="seat_number">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3 desserte-options">
+                                <div class="col-md-12">
+                                    <label for="desserte_id" class="form-label">Code UIC de la desserte</label>
+                                    <input type="text" class="form-control" id="desserte_id">
+                                    <div class="form-text">Exemples : 87654328 (Limoges), 87594330 (Brive), 87594336 (Toulouse)</div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Consulter</button>
+                        </form>
+                        
+                        <div id="resultContainer" class="result-container">
+                            <h4 class="mb-3">Résultats</h4>
+                            <div id="resultContent">
+                                <pre id="resultJson"></pre>
+                            </div>
+                            <div id="exportBtn" style="display: none;">
+                                <a href="#" class="btn btn-success" id="downloadCsv">Télécharger le fichier CSV</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const apiTypeSelect = document.getElementById('api_type');
+            const siegeVoitureOptions = document.querySelectorAll('.siege-voiture-options');
+            const siegeOptions = document.querySelectorAll('.siege-options');
+            const desserteOptions = document.querySelector('.desserte-options');
+            const occupationForm = document.getElementById('occupationForm');
+            const resultContainer = document.getElementById('resultContainer');
+            const resultJson = document.getElementById('resultJson');
+            const exportBtn = document.getElementById('exportBtn');
+            const downloadCsv = document.getElementById('downloadCsv');
+            
+            // Gérer l'affichage des champs en fonction du type d'API
+            apiTypeSelect.addEventListener('change', function() {
+                const selectedValue = this.value;
+                
+                // Cacher tous les champs optionnels
+                siegeVoitureOptions.forEach(el => el.style.display = 'none');
+                siegeOptions.forEach(el => el.style.display = 'none');
+                desserteOptions.style.display = 'none';
+                
+                // Afficher les champs pertinents selon le type sélectionné
+                if (selectedValue === 'siege') {
+                    siegeVoitureOptions.forEach(el => el.style.display = 'block');
+                    siegeOptions.forEach(el => el.style.display = 'block');
+                } else if (selectedValue === 'voiture') {
+                    siegeVoitureOptions.forEach(el => el.style.display = 'block');
+                } else if (selectedValue === 'desserte_specifique') {
+                    desserteOptions.style.display = 'block';
+                }
+            });
+            
+            // Trigger initial pour configurer l'affichage
+            apiTypeSelect.dispatchEvent(new Event('change'));
+            
+            // Gérer la soumission du formulaire
+            occupationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const trainNumber = document.getElementById('train_number').value;
+                const journeyDate = document.getElementById('journey_date').value;
+                const apiType = apiTypeSelect.value;
+                const coachNumber = document.getElementById('coach_number').value;
+                const seatNumber = document.getElementById('seat_number').value;
+                const desserteId = document.getElementById('desserte_id').value;
+                
+                let apiUrl = '';
+                
+                // Construire l'URL de l'API en fonction du type sélectionné
+                switch (apiType) {
+                    case 'global':
+                        apiUrl = `/gestionnaire/API/tauxOccupation/${trainNumber}&${journeyDate}`;
+                        break;
+                    case 'siege':
+                        apiUrl = `/gestionnaire/API/tauxOccupationSiege/${trainNumber}&${coachNumber}&${seatNumber}&${journeyDate}`;
+                        break;
+                    case 'voiture':
+                        apiUrl = `/gestionnaire/API/tauxOccupationVoiture/${trainNumber}&${coachNumber}&${journeyDate}`;
+                        break;
+                    case 'desserte':
+                        apiUrl = `/gestionnaire/API/tauxOccupationDesserte/${trainNumber}&${journeyDate}`;
+                        break;
+                    case 'desserte_specifique':
+                        apiUrl = `/gestionnaire/API/tauxOccupationDesserteSpecifique/${trainNumber}&${desserteId}&${journeyDate}`;
+                        break;
+                    case 'export':
+                        // Pour l'export CSV, rediriger directement vers l'URL
+                        const csvUrl = `/gestionnaire/API/exportCSV/${trainNumber}&${journeyDate}`;
+                        downloadCsv.href = csvUrl;
+                        resultContainer.style.display = 'block';
+                        exportBtn.style.display = 'block';
+                        resultJson.parentElement.style.display = 'none';
+                        return;
+                }
+                
+                // Appeler l'API et afficher les résultats
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erreur lors de la récupération des données');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        resultJson.textContent = JSON.stringify(data, null, 2);
+                        resultContainer.style.display = 'block';
+                        resultJson.parentElement.style.display = 'block';
+                        exportBtn.style.display = 'none';
+                    })
+                    .catch(error => {
+                        resultJson.textContent = error.message;
+                        resultContainer.style.display = 'block';
+                        resultJson.parentElement.style.display = 'block';
+                        exportBtn.style.display = 'none';
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

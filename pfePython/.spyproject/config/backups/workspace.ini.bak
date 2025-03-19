@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['..\\..\\.spyder-py3\\temp.py', 'pfeAPItest\\train_api\\apps.py']
+recent_files = ['..\\..\\.spyder-py3\\temp.py', 'pfeAPItest\\train_api\\apps.py', 'pfeAPItest\\train_api\\templates\\train_api\\controleur_form.html', 'pfeAPItest\\train_api\\templates\\train_api\\controleur_result.html', 'pfeAPItest\\train_api\\templates\\train_api\\dashboard.html']
 
 [main]
 version = 0.2.0

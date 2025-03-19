@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "train_api",
+    "common_utils",
+    "app_bord",
+    "app_controleur",
+    "app_gestionnaire",
+    #"train_api",  # Gardez temporairement pour la migration
 ]
 
 MIDDLEWARE = [
