@@ -51,22 +51,18 @@ def bord_result(request):
         stations_data = load_json_file(stations_file)
         station_name = get_station_name(station_id, stations_data) if stations_data else None
         
-        # Appel à l'API d'occupation des places (simulation simplifiée)
-        # Normalement, vous appelleriez votre fonction api.api_occupation_des_places ici
+        # Appel à l'API d'occupation des places (version réelle)
+        from app_bord.api import api_occupation_des_places
         
-        # Pour la démonstration, nous pouvons utiliser un texte de test
-        occupation_data = """seat.coach = 1
-        seat.idSeat = 2
-        seat.beginStation = Paris Auster
-        seat.endStation = Toulouse
-        seat.coach = 1
-        seat.idSeat = 4
-        seat.beginStation = Limoges
-        seat.endStation = Brive-la-G.
-        seat.coach = 2
-        seat.idSeat = 6
-        seat.beginStation = Limoges
-        seat.endStation = Montauban"""
+        # Créer une requête factice pour l'API
+        from django.http import HttpRequest
+        api_request = HttpRequest()
+        
+        # Appeler l'API directement
+        api_response = api_occupation_des_places(api_request, train_number, station_id, journey_date)
+        
+        # Récupérer le contenu textuel de la réponse HTTP
+        occupation_data = api_response.content.decode('utf-8')
         
         context = {
             'train_number': train_number,

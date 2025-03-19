@@ -19,157 +19,209 @@ def api_occupation_des_places(request, numero_train_commercial, station_id, date
     stations_data = load_json_file(stations_file)
     
     if not train_data or not stations_data:
-        return HttpResponse("Aucune donnée d'occupation des places disponible (le référentiel ou le jeu de données ne sont pas récupérables)", content_type='text/plain; charset=utf-8')
+        return HttpResponse("Aucune donnée d'occupation des places disponible", content_type='text/plain; charset=utf-8')
     
-    # Récupérer toutes les dessertes triées par rang dans un tableau de json
+    # Récupérer toutes les dessertes triées par rang
     dessertes = sorted(train_data.get("dessertes", []), key=lambda x: int(x.get("rang", 0)))
     
     # Trouver la desserte actuelle et son rang
     current_desserte = None
     current_rang = -1
+    current_index = -1
     
-    for desserte in dessertes:
+    for i, desserte in enumerate(dessertes):
         if desserte.get("codeUIC") == station_id:
             current_desserte = desserte
             current_rang = int(desserte.get("rang", 0))
+            current_index = i
             break
     
     if not current_desserte:
         return HttpResponse(f"Aucune desserte trouvée pour la gare {station_id}", content_type='text/plain; charset=utf-8')
     
-    # Récupérer les dessertes futures (après la desserte actuelle)
-    future_dessertes = [d for d in dessertes if int(d.get("rang", 0)) > current_rang]
+    # Vérifier s'il y a des dessertes futures
+    if current_index >= len(dessertes) - 1:
+        return HttpResponse("Fin du trajet, aucune desserte future", content_type='text/plain; charset=utf-8')
     
-    if not future_dessertes:
-        return HttpResponse("Fin du trajet, aucune desserte future (à voir si on renvoit vide/rien)", content_type='text/plain; charset=utf-8')
+    # Diviser les dessertes en passées, actuelle et futures pour simplifier les recherches
+    past_dessertes = dessertes[:current_index]
+    future_dessertes = dessertes[current_index+1:]
     
-    # Dictionnaire pour stocker les résultats
-    seat_occupations = {}
+    # Dictionnaire pour stocker les segments d'occupation à renvoyer
+    seat_segments = {}
     
-    # On commence par traiter la desserte actuelle pour voir les places déjà occupées
-    # et celles qui vont être occupées dans les dessertes futures
-    
-    # 1. Traiter la desserte actuelle pour connaître l'état initial des places
-    current_seat_states = {}  # {coach_seat: is_occupied}
-    
+    # Parcourir tous les sièges dans la desserte actuelle
     for rame in current_desserte.get("rames", []):
         for voiture in rame.get("voitures", []):
             coach_number = voiture.get("numero")
+            
             for place in voiture.get("places", []):
                 seat_number = place.get("numero")
                 seat_id = f"{coach_number}_{seat_number}"
                 
+                # Obtenir le statut actuel et les indicateurs de flux
                 occupation = place.get("occupation", {})
-                statut = occupation.get("statut", "LIBRE")
+                current_statut = occupation.get("statut", "LIBRE")
+                current_flux_montant = occupation.get("fluxMontant", False)
+                current_flux_descendant = occupation.get("fluxDescendant", False)
                 
-                current_seat_states[seat_id] = statut == "OCCUPE"
-    
-    # 2. Parcourir les dessertes futures pour trouver les prochaines occupations
-    for desserte in future_dessertes:
-        desserte_code_uic = desserte.get("codeUIC")
-        
-        for rame in desserte.get("rames", []):
-            for voiture in rame.get("voitures", []):
-                coach_number = voiture.get("numero")
-                for place in voiture.get("places", []):
-                    seat_number = place.get("numero")
-                    seat_id = f"{coach_number}_{seat_number}"
+                # Cas 1: Siège LIBRE à la desserte actuelle
+                if current_statut == "LIBRE":
+                    # Trouver la prochaine occupation (prochain fluxMontant)
+                    begin_station = None
+                    begin_desserte_index = None
                     
-                    occupation = place.get("occupation", {})
-                    statut = occupation.get("statut")
-                    flux_montant = occupation.get("fluxMontant", False)
-                    flux_descendant = occupation.get("fluxDescendant", False)
+                    for i, desserte in enumerate(future_dessertes):
+                        for rame_f in desserte.get("rames", []):
+                            for voiture_f in rame_f.get("voitures", []):
+                                if voiture_f.get("numero") == coach_number:
+                                    for place_f in voiture_f.get("places", []):
+                                        if place_f.get("numero") == seat_number:
+                                            occ_f = place_f.get("occupation", {})
+                                            if occ_f.get("fluxMontant", False):
+                                                begin_station = get_station_name(desserte.get("codeUIC"), stations_data)
+                                                begin_desserte_index = current_index + 1 + i
+                                                break
+                                    if begin_station:
+                                        break
+                            if begin_station:
+                                break
+                        if begin_station:
+                            break
                     
-                    # Cas 1: Siège actuellement LIBRE, et il y a un flux montant
-                    if seat_id not in current_seat_states or not current_seat_states[seat_id]:
-                        if flux_montant:
-                            # Chercher où ce voyageur descendra
-                            descend_station = None
-                            descend_station_code = None
-                            
-                            # Chercher la fin de cette occupation
-                            for future_desserte in [d for d in future_dessertes if int(d.get("rang", 0)) >= int(desserte.get("rang", 0))]:
-                                for future_rame in future_desserte.get("rames", []):
-                                    for future_voiture in future_rame.get("voitures", []):
-                                        if future_voiture.get("numero") == coach_number:
-                                            for future_place in future_voiture.get("places", []):
-                                                if future_place.get("numero") == seat_number:
-                                                    future_occupation = future_place.get("occupation", {})
-                                                    future_flux_descendant = future_occupation.get("fluxDescendant", False)
-                                                    
-                                                    if future_flux_descendant:
-                                                        descend_station_code = future_desserte.get("codeUIC")
-                                                        descend_station = get_station_name(descend_station_code, stations_data)
-                                                        break
-                                            
-                            # Si on a trouvé où le voyageur descend
-                            if descend_station:
-                                # Créer une entrée pour cette occupation
-                                begin_station = get_station_name(desserte_code_uic, stations_data)
-                                if seat_id not in seat_occupations:
-                                    seat_occupations[seat_id] = {
-                                        "coach": coach_number,
-                                        "seat": seat_number,
-                                        "begin_station": begin_station,
-                                        "end_station": descend_station
-                                    }
-                            
-                            # Mettre à jour l'état du siège
-                            current_seat_states[seat_id] = True
-                    
-                    # Cas 2: Siège actuellement OCCUPE, et il y a un flux descendant
-                    elif current_seat_states.get(seat_id, False):
-                        if flux_descendant:
-                            # Le siège devient libre
-                            current_seat_states[seat_id] = False
-                    
-                    # Cas 3: Changement de voyageur (descente et montée à la même desserte)
-                    if flux_descendant and flux_montant:
-                        # On marque la descente du voyageur précédent
-                        current_seat_states[seat_id] = False
-                        
-                        # Et on cherche où descendra le nouveau voyageur
-                        descend_station = None
-                        descend_station_code = None
-                        
-                        # Chercher la fin de cette nouvelle occupation
-                        for future_desserte in [d for d in future_dessertes if int(d.get("rang", 0)) >= int(desserte.get("rang", 0))]:
-                            for future_rame in future_desserte.get("rames", []):
-                                for future_voiture in future_rame.get("voitures", []):
-                                    if future_voiture.get("numero") == coach_number:
-                                        for future_place in future_voiture.get("places", []):
-                                            if future_place.get("numero") == seat_number:
-                                                future_occupation = future_place.get("occupation", {})
-                                                future_flux_descendant = future_occupation.get("fluxDescendant", False)
-                                                
-                                                if future_flux_descendant and future_desserte.get("codeUIC") != desserte_code_uic:
-                                                    descend_station_code = future_desserte.get("codeUIC")
-                                                    descend_station = get_station_name(descend_station_code, stations_data)
+                    # Si on a trouvé une desserte de début, chercher la fin
+                    if begin_station and begin_desserte_index is not None:
+                        end_station = None
+                        for desserte in dessertes[begin_desserte_index+1:]:
+                            for rame_f in desserte.get("rames", []):
+                                for voiture_f in rame_f.get("voitures", []):
+                                    if voiture_f.get("numero") == coach_number:
+                                        for place_f in voiture_f.get("places", []):
+                                            if place_f.get("numero") == seat_number:
+                                                occ_f = place_f.get("occupation", {})
+                                                if occ_f.get("fluxDescendant", False):
+                                                    end_station = get_station_name(desserte.get("codeUIC"), stations_data)
                                                     break
+                                        if end_station:
+                                            break
+                                if end_station:
+                                    break
+                            if end_station:
+                                break
                         
-                        # Si on a trouvé où le voyageur descend
-                        if descend_station:
-                            # Créer une entrée pour cette occupation
-                            begin_station = get_station_name(desserte_code_uic, stations_data)
-                            if seat_id not in seat_occupations:
-                                seat_occupations[seat_id] = {
-                                    "coach": coach_number,
-                                    "seat": seat_number,
-                                    "begin_station": begin_station,
-                                    "end_station": descend_station
-                                }
-                        
-                        # Mettre à jour l'état du siège
-                        current_seat_states[seat_id] = True
+                        # Si segment complet trouvé, l'ajouter au résultat
+                        if end_station:
+                            seat_segments[seat_id] = {
+                                "coach": coach_number,
+                                "seat": seat_number,
+                                "begin_station": begin_station,
+                                "end_station": end_station
+                            }
+                
+                # Cas 2: Siège OCCUPÉ avec changement de voyageur (montée et descente à la même gare)
+                elif current_statut == "OCCUPE" and current_flux_montant and current_flux_descendant:
+                    begin_station = get_station_name(station_id, stations_data)
+                    end_station = None
+                    
+                    # Chercher la desserte de fin d'occupation (prochain fluxDescendant)
+                    for desserte in future_dessertes:
+                        for rame_f in desserte.get("rames", []):
+                            for voiture_f in rame_f.get("voitures", []):
+                                if voiture_f.get("numero") == coach_number:
+                                    for place_f in voiture_f.get("places", []):
+                                        if place_f.get("numero") == seat_number:
+                                            occ_f = place_f.get("occupation", {})
+                                            if occ_f.get("fluxDescendant", False):
+                                                end_station = get_station_name(desserte.get("codeUIC"), stations_data)
+                                                break
+                                    if end_station:
+                                        break
+                            if end_station:
+                                break
+                        if end_station:
+                            break
+                    
+                    # Si on a trouvé une fin, ajouter le segment
+                    if end_station:
+                        seat_segments[seat_id] = {
+                            "coach": coach_number,
+                            "seat": seat_number,
+                            "begin_station": begin_station,
+                            "end_station": end_station
+                        }
+                
+                # Cas 3: Siège OCCUPÉ sans changement à cette desserte
+                elif current_statut == "OCCUPE":
+                    # Chercher la desserte de début d'occupation (précédent fluxMontant)
+                    begin_station = None
+                    
+                    # Parcourir les dessertes passées en sens inverse pour trouver la plus récente montée
+                    for desserte in reversed(past_dessertes + [current_desserte]):
+                        for rame_p in desserte.get("rames", []):
+                            for voiture_p in rame_p.get("voitures", []):
+                                if voiture_p.get("numero") == coach_number:
+                                    for place_p in voiture_p.get("places", []):
+                                        if place_p.get("numero") == seat_number:
+                                            occ_p = place_p.get("occupation", {})
+                                            if occ_p.get("fluxMontant", False):
+                                                begin_station = get_station_name(desserte.get("codeUIC"), stations_data)
+                                                break
+                                    if begin_station:
+                                        break
+                            if begin_station:
+                                break
+                        if begin_station:
+                            break
+                    
+                    # Si on n'a pas trouvé de début mais que le siège est occupé, 
+                    # c'est que le voyageur est monté avant la première desserte du train
+                    if not begin_station:
+                        begin_station = get_station_name(dessertes[0].get("codeUIC"), stations_data)
+                    
+                    # Chercher la desserte de fin d'occupation (prochain fluxDescendant)
+                    end_station = None
+                    # Si le voyageur descend à cette desserte, on ne l'inclut pas
+                    if not current_flux_descendant:
+                        for desserte in future_dessertes:
+                            for rame_f in desserte.get("rames", []):
+                                for voiture_f in rame_f.get("voitures", []):
+                                    if voiture_f.get("numero") == coach_number:
+                                        for place_f in voiture_f.get("places", []):
+                                            if place_f.get("numero") == seat_number:
+                                                occ_f = place_f.get("occupation", {})
+                                                if occ_f.get("fluxDescendant", False):
+                                                    end_station = get_station_name(desserte.get("codeUIC"), stations_data)
+                                                    break
+                                        if end_station:
+                                            break
+                                if end_station:
+                                    break
+                            if end_station:
+                                break
+                    else:
+                        # Le voyageur descend à cette desserte, on ne l'inclut pas
+                        continue
+                    
+                    # Si on n'a pas trouvé de fin, c'est que le voyageur descend à la dernière desserte
+                    if not end_station:
+                        end_station = get_station_name(dessertes[-1].get("codeUIC"), stations_data)
+                    
+                    # Ajouter le segment au résultat
+                    seat_segments[seat_id] = {
+                        "coach": coach_number,
+                        "seat": seat_number,
+                        "begin_station": begin_station,
+                        "end_station": end_station
+                    }
     
     # Formater la réponse selon le cahier des charges
     response_text = ""
     
-    for seat_id, occupation in seat_occupations.items():
-        coach = occupation["coach"]
-        seat = occupation["seat"]
-        begin_station = occupation["begin_station"]
-        end_station = occupation["end_station"]
+    for seat_id, segment in seat_segments.items():
+        coach = segment["coach"]
+        seat = segment["seat"]
+        begin_station = segment["begin_station"]
+        end_station = segment["end_station"]
         
         response_text += f"seat.coach = {coach}\n"
         response_text += f"seat.idSeat = {seat}\n"
@@ -177,10 +229,9 @@ def api_occupation_des_places(request, numero_train_commercial, station_id, date
         response_text += f"seat.endStation = {end_station}\n"
     
     if not response_text:
-        response_text = "Aucune occupation future des places disponible pour cette gare (à voir si on renvoie vide/rien)"
+        response_text = "Aucune occupation future des places disponible pour cette gare"
     
     return HttpResponse(response_text, content_type='text/plain; charset=utf-8')
-
 def get_seat_occupation(seat_number, coach_number, train_number, journey_date, data_folder=None):
     """
     Récupère les segments d'occupation d'un siège donné sur l'ensemble d'une course
