@@ -484,6 +484,85 @@ def api_taux_occupation_desserte_specifique(request, numero_train_commercial, co
     
     return JsonResponse(result)
 
+def api_taux_occupation_voiture_global(request, numero_train_commercial, date_debut_mission):
+    """
+    API pour récupérer le taux d'occupation moyen de chaque voiture sur l'ensemble du parcours
+    
+    URL: /API/tauxOccupationVoitureGlobal/<numero_train_commercial>&<date_debut_mission>
+    
+    Returns:
+        JsonResponse: Taux d'occupation moyen par voiture sur tout le parcours
+    """
+    data_folder = os.path.join(settings.BASE_DIR, 'data/')
+    train_file = f"{data_folder}{numero_train_commercial}_{date_debut_mission}.json"
+    
+    train_data = load_json_file(train_file)
+    
+    if not train_data:
+        return JsonResponse({"error": "Aucune donnée d'occupation des places disponible"}, status=404)
+    
+    # Récupérer toutes les dessertes triées par rang
+    dessertes = sorted(train_data.get("dessertes", []), key=lambda x: int(x.get("rang", 0)))
+    
+    # Dictionnaire pour stocker les données cumulées par voiture
+    coach_data = {}
+    
+    # Parcourir toutes les dessertes pour accumuler les données d'occupation
+    for desserte in dessertes:
+        for rame in desserte.get("rames", []):
+            for voiture in rame.get("voitures", []):
+                coach_number = voiture.get("numero")
+                
+                # Initialiser les données de la voiture si elle n'existe pas encore
+                if coach_number not in coach_data:
+                    coach_data[coach_number] = {
+                        "total_seats_instances": 0,  # Nombre total de sièges × nombre de dessertes
+                        "occupied_seats_instances": 0,  # Nombre total de sièges occupés
+                        "total_seats": len(voiture.get("places", []))  # Nombre de sièges dans la voiture
+                    }
+                
+                # Ajouter les données d'occupation pour cette desserte
+                total_seats = len(voiture.get("places", []))
+                occupied_seats = sum(1 for place in voiture.get("places", []) 
+                                   if place.get("occupation", {}).get("statut") == "OCCUPE")
+                
+                coach_data[coach_number]["total_seats_instances"] += total_seats
+                coach_data[coach_number]["occupied_seats_instances"] += occupied_seats
+    
+    # Calculer les taux d'occupation moyens
+    coaches_result = []
+    total_occupied = 0
+    total_seats = 0
+    
+    for coach_number, data in sorted(coach_data.items(), key=lambda x: int(x[0])):
+        average_rate = 0
+        if data["total_seats_instances"] > 0:
+            average_rate = (data["occupied_seats_instances"] / data["total_seats_instances"]) * 100
+        
+        coaches_result.append({
+            "coach_number": coach_number,
+            "average_occupation_rate": round(average_rate, 1),
+            "total_seats": data["total_seats"],
+            "times_occupied": data["occupied_seats_instances"]
+        })
+        
+        total_occupied += data["occupied_seats_instances"]
+        total_seats += data["total_seats_instances"]
+    
+    # Calculer la moyenne globale
+    global_average = 0
+    if total_seats > 0:
+        global_average = (total_occupied / total_seats) * 100
+    
+    result = {
+        "train_number": numero_train_commercial,
+        "journey_date": date_debut_mission,
+        "coaches": coaches_result,
+        "global_average": round(global_average, 1)
+    }
+    
+    return JsonResponse(result)
+
 def api_passager_flow(request, numero_train_commercial, date_debut_mission):
     """
     API pour récupérer les données de flux de passagers (montées/descentes) pour un train
@@ -548,5 +627,5 @@ def api_passager_flow(request, numero_train_commercial, date_debut_mission):
     
     return JsonResponse(result)
 
-def test_api(request):
+
     return HttpResponse("API test successful")

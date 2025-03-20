@@ -35,6 +35,17 @@
             width: 3rem;
             height: 3rem;
         }
+        .coach-station-matrix td, .coach-station-matrix th {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .coach-station-matrix th {
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 120px;
+        }
     </style>
 </head>
 <body>
@@ -156,14 +167,33 @@
                 </div>
             </div>
         </div>
-        
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title">Matrice d'occupation par voiture et par desserte</h5>
+                </div>
+                <div class="card-body">
+                    <div class="loading">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Chargement...</span>
+                        </div>
+                    </div>
+                    <div id="coach-station-container" class="table-responsive">
+                        <!-- La matrice sera générée dynamiquement ici -->
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cette matrice montre l'évolution du taux d'occupation de chaque voiture à travers les différentes gares du parcours. Les couleurs indiquent le niveau d'occupation.</small>
+                </div>
+            </div>
+        </div>
         <!-- Section: Tableau détaillé -->
         <div class="row" id="table-section" style="display:none;">
             <div class="col-md-12">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">Détails par desserte</h5>
-                        <button id="export-csv-btn" class="btn btn-sm btn-outline-secondary">Exporter en CSV</button>
+                        <button id="export-csv-btn" class="btn btn-sm btn-outline-secondary">Exporter en CSV ATTENTION CA MARCHE PAS !!!!</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -261,6 +291,12 @@
                 if (coachChart) coachChart.destroy();
                 if (stationChart) stationChart.destroy();
                 if (flowChart) flowChart.destroy();
+                
+                // Réinitialiser le conteneur de la matrice
+                const coachStationContainer = document.getElementById('coach-station-container');
+                if (coachStationContainer) {
+                    coachStationContainer.innerHTML = '';
+                }
                 
                 // Configuration pour le graphique d'occupation par voiture
                 const coachCtx = document.getElementById('coach-occupancy-chart').getContext('2d');
@@ -379,8 +415,114 @@
                 });
             }
             
+            // Fonction pour mettre à jour la matrice d'occupation voiture/desserte
+            function updateCoachStationChart(desserteData) {
+                const container = document.getElementById('coach-station-container');
+                if (!container) return;
+                
+                // Vider le conteneur
+                container.innerHTML = '';
+                
+                // Créer une table pour représenter la matrice
+                const table = document.createElement('table');
+                table.className = 'table table-bordered table-sm coach-station-matrix';
+                
+                // Créer l'en-tête avec les noms des gares
+                const thead = document.createElement('thead');
+                const headerRow = document.createElement('tr');
+                
+                // Première cellule (coin supérieur gauche) vide
+                const cornerCell = document.createElement('th');
+                cornerCell.textContent = 'Voiture / Gare';
+                headerRow.appendChild(cornerCell);
+                
+                // Ajouter les noms de gares comme en-têtes de colonnes
+                desserteData.desserte_occupation.forEach(desserte => {
+                    const th = document.createElement('th');
+                    th.textContent = desserte.station_name;
+                    headerRow.appendChild(th);
+                });
+                
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+                
+                // Créer le corps du tableau
+                const tbody = document.createElement('tbody');
+                
+                // Déterminer la liste complète des voitures
+                const allCoaches = new Set();
+                desserteData.desserte_occupation.forEach(desserte => {
+                    desserte.coach_occupation.forEach(coach => {
+                        allCoaches.add(coach.coach_number);
+                    });
+                });
+                
+                // Trier les numéros de voiture numériquement
+                const sortedCoaches = Array.from(allCoaches).sort((a, b) => parseInt(a) - parseInt(b));
+                
+                // Pour chaque voiture, créer une ligne dans la matrice
+                sortedCoaches.forEach(coachNumber => {
+                    const row = document.createElement('tr');
+                    
+                    // Première cellule avec le numéro de voiture
+                    const cell = document.createElement('td');
+                    cell.textContent = `Voiture ${coachNumber}`;
+                    cell.className = 'fw-bold';
+                    row.appendChild(cell);
+                    
+                    // Pour chaque desserte, ajouter une cellule avec le taux d'occupation
+                    desserteData.desserte_occupation.forEach(desserte => {
+                        const cell = document.createElement('td');
+                        
+                        // Trouver les données d'occupation pour cette voiture à cette desserte
+                        const coachData = desserte.coach_occupation.find(c => c.coach_number === coachNumber);
+                        
+                        if (coachData) {
+                            const occupancyRate = coachData.occupation_rate;
+                            cell.textContent = `${occupancyRate.toFixed(1)}%`;
+                            
+                            // Appliquer une couleur de fond en fonction du taux d'occupation
+                            if (occupancyRate >= 90) {
+                                cell.className = 'bg-danger text-white';
+                            } else if (occupancyRate >= 70) {
+                                cell.className = 'bg-warning';
+                            } else if (occupancyRate >= 40) {
+                                cell.className = 'bg-info text-white';
+                            } else if (occupancyRate > 0) {
+                                cell.className = 'bg-success text-white';
+                            } else {
+                                cell.className = 'bg-light';
+                            }
+                        } else {
+                            cell.textContent = 'N/A';
+                            cell.className = 'bg-secondary text-white';
+                        }
+                        
+                        row.appendChild(cell);
+                    });
+                    
+                    tbody.appendChild(row);
+                });
+                
+                table.appendChild(tbody);
+                container.appendChild(table);
+                
+                // Ajouter une légende
+                const legend = document.createElement('div');
+                legend.className = 'mt-3 d-flex justify-content-center';
+                legend.innerHTML = `
+                    <div class="mx-2"><span class="badge bg-light text-dark">0%</span></div>
+                    <div class="mx-2"><span class="badge bg-success">1-40%</span></div>
+                    <div class="mx-2"><span class="badge bg-info">41-70%</span></div>
+                    <div class="mx-2"><span class="badge bg-warning text-dark">71-90%</span></div>
+                    <div class="mx-2"><span class="badge bg-danger">+90%</span></div>
+                    <div class="mx-2"><span class="badge bg-secondary">N/A</span></div>
+                `;
+                container.appendChild(legend);
+            }
+            
             // Fonction pour mettre à jour le tableau détaillé
-            function updateTable(data) {
+            function updateTable(data, flowData) {
                 const tableBody = document.getElementById('desserte-table-body');
                 tableBody.innerHTML = '';
                 
@@ -388,8 +530,12 @@
                 data.desserte_occupation.forEach(desserte => {
                     const tr = document.createElement('tr');
                     
-                    const boarding = desserte.boarding || 0;
-                    const alighting = desserte.alighting || 0;
+                    // Récupérer les données de flux pour cette desserte
+                    const flow = flowData.flow_data.find(item => 
+                        item.desserte_code_uic === desserte.desserte_code_uic);
+                    
+                    const boarding = flow ? flow.boarding : 0;
+                    const alighting = flow ? flow.alighting : 0;
                     const balance = boarding - alighting;
                     const balanceClass = balance > 0 ? 'text-success' : (balance < 0 ? 'text-danger' : '');
                     
@@ -408,37 +554,6 @@
                 });
             }
             
-            // Fonction pour calculer les montées et descentes à partir des flux
-            function calculatePassengerFlow(data) {
-                const boardings = [];
-                const alightings = [];
-                const stationNames = [];
-                
-                // Pour chaque desserte, nous devons calculer les montées et descentes
-                data.desserte_occupation.forEach(desserte => {
-                    let boardingCount = 0;
-                    let alightingCount = 0;
-                    
-                    // Parcourir les voitures et places pour calculer les flux à cette desserte
-                    // Note: Ces données pourraient ne pas être directement disponibles dans l'API actuelle
-                    // Nous utilisons donc des valeurs estimées pour la démonstration
-                    
-                    // Pour une visualisation simplifiée, on peut calculer les flux
-                    // à partir de la variation d'occupation entre les dessertes
-                    
-                    // Ici nous utilisons une approche alternative avec des données simulées
-                    // basées sur le taux d'occupation (juste pour la démonstration)
-                    boardingCount = Math.round(desserte.occupation_rate * 0.4);
-                    alightingCount = Math.round(desserte.occupation_rate * 0.3);
-                    
-                    boardings.push(boardingCount);
-                    alightings.push(alightingCount);
-                    stationNames.push(desserte.station_name);
-                });
-                
-                return { boardings, alightings, stationNames };
-            }
-            
             // Fonction pour charger les données et mettre à jour les graphiques
             function loadData(trainNum, journeyDate) {
                 hideAllDataSections();
@@ -447,53 +562,77 @@
                 // Initialiser les graphiques avec des valeurs vides
                 initializeCharts();
                 
-                // Effectuer les appels API pour obtenir les données
+                // Définir les URLs des API
                 const globalUrl = `/gestionnaire/API/tauxOccupation/${trainNum}&${journeyDate}`;
                 const desserteUrl = `/gestionnaire/API/tauxOccupationDesserte/${trainNum}&${journeyDate}`;
+                const flowUrl = `/gestionnaire/API/fluxPassagers/${trainNum}&${journeyDate}`;
+                const coachGlobalUrl = `/gestionnaire/API/tauxOccupationVoitureGlobal/${trainNum}&${journeyDate}`;
                 
-                // Appel API pour les données globales
-                fetch(globalUrl)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Erreur lors de la récupération des données globales');
-                        }
-                        return response.json();
-                    })
-                    .then(globalData => {
-                        // Appel API pour les données par desserte
-                        return fetch(desserteUrl)
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Erreur lors de la récupération des données par desserte');
-                                }
-                                return response.json();
-                            })
-                            .then(desserteData => {
-                                // Simuler les données de flux de passagers
-                                // Dans une implémentation réelle, il faudrait un autre appel API
-                                desserteData.desserte_occupation.forEach(desserte => {
-                                    // Ajouter des propriétés de flux simulées pour la démo
-                                    desserte.boarding = Math.round(Math.random() * 20); // 0 à 20 passagers qui montent
-                                    desserte.alighting = Math.round(Math.random() * 15); // 0 à 15 passagers qui descendent
-                                });
-                                
-                                return { globalData, desserteData };
-                            });
-                    })
-                    .then(({ globalData, desserteData }) => {
-                        // Mettre à jour les KPIs
-                        globalOccupancy.textContent = formatRate(globalData.occupation_rate);
-                        totalSeats.textContent = globalData.total_seats;
+                // Utiliser Promise.all pour effectuer les quatre appels API en parallèle
+                Promise.all([
+                    // API 1: Données globales d'occupation
+                    fetch(globalUrl)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Erreur lors de la récupération des données globales');
+                            }
+                            return response.json();
+                        }),
+                    
+                    // API 2: Données d'occupation par desserte
+                    fetch(desserteUrl)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Erreur lors de la récupération des données par desserte');
+                            }
+                            return response.json();
+                        }),
+                    
+                    // API 3: Données de flux de passagers
+                    fetch(flowUrl)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Erreur lors de la récupération des données de flux');
+                            }
+                            return response.json();
+                        }),
                         
-                        // Trouver la voiture la plus occupée
-                        let maxCoachOccupancy = 0;
-                        let maxCoachNumber = '';
-                        
-                        // Extraire les données pour le graphique des voitures
-                        const coachLabels = [];
-                        const coachData = [];
-                        
-                        // Parcourir toutes les dessertes pour trouver des infos sur les voitures
+                    // API 4: Données d'occupation moyenne par voiture
+                    fetch(coachGlobalUrl)
+                        .then(response => {
+                            if (!response.ok) {
+                                // Si l'API n'est pas encore implémentée, utiliser une solution de repli
+                                // avec les données de la première desserte (comportement actuel)
+                                return null;
+                            }
+                            return response.json();
+                        }).catch(() => null) // Gérer silencieusement les erreurs pour cette API en développement
+                ])
+                .then(([globalData, desserteData, flowData, coachGlobalData]) => {
+                    // Mettre à jour les KPIs
+                    globalOccupancy.textContent = formatRate(globalData.occupation_rate);
+                    totalSeats.textContent = globalData.total_seats;
+                    
+                    // Extraire les données pour le graphique des voitures
+                    const coachLabels = [];
+                    const coachData = [];
+                    
+                    let maxCoachOccupancy = 0;
+                    let maxCoachNumber = '';
+                    
+                    // Si l'API dédiée est disponible, utiliser ses données
+                    if (coachGlobalData) {
+                        coachGlobalData.coaches.forEach(coach => {
+                            coachLabels.push(`Voiture ${coach.coach_number}`);
+                            coachData.push(coach.average_occupation_rate);
+                            
+                            if (coach.average_occupation_rate > maxCoachOccupancy) {
+                                maxCoachOccupancy = coach.average_occupation_rate;
+                                maxCoachNumber = coach.coach_number;
+                            }
+                        });
+                    } else {
+                        // Sinon, utiliser les données de la première desserte (solution de repli)
                         const firstDesserte = desserteData.desserte_occupation[0] || {};
                         const coachOccupations = firstDesserte.coach_occupation || [];
                         
@@ -506,92 +645,104 @@
                                 maxCoachNumber = coach.coach_number;
                             }
                         });
+                    }
+                    
+                    maxCoach.textContent = maxCoachNumber;
+                    maxCoachRate.textContent = formatRate(maxCoachOccupancy);
+                    
+                    // Mettre à jour le graphique des voitures
+                    coachChart.data.labels = coachLabels;
+                    coachChart.data.datasets[0].data = coachData;
+                    coachChart.update();
+                    
+                    // Extraire les données pour le graphique des dessertes
+                    const stationLabels = [];
+                    const stationData = [];
+                    
+                    // Trouver la gare la plus fréquentée
+                    let maxStationOccupancy = 0;
+                    let maxStationName = '';
+                    
+                    desserteData.desserte_occupation.forEach(desserte => {
+                        stationLabels.push(desserte.station_name);
+                        stationData.push(desserte.occupation_rate);
                         
-                        maxCoach.textContent = maxCoachNumber;
-                        maxCoachRate.textContent = formatRate(maxCoachOccupancy);
-                        
-                        // Mettre à jour le graphique des voitures
-                        coachChart.data.labels = coachLabels;
-                        coachChart.data.datasets[0].data = coachData;
-                        coachChart.update();
-                        
-                        // Extraire les données pour le graphique des dessertes
-                        const stationLabels = [];
-                        const stationData = [];
-                        
-                        // Trouver la gare la plus fréquentée
-                        let maxStationOccupancy = 0;
-                        let maxStationName = '';
-                        
-                        desserteData.desserte_occupation.forEach(desserte => {
-                            stationLabels.push(desserte.station_name);
-                            stationData.push(desserte.occupation_rate);
-                            
-                            if (desserte.occupation_rate > maxStationOccupancy) {
-                                maxStationOccupancy = desserte.occupation_rate;
-                                maxStationName = desserte.station_name;
-                            }
-                        });
-                        
-                        maxStation.textContent = maxStationName;
-                        maxStationRate.textContent = formatRate(maxStationOccupancy);
-                        
-                        // Mettre à jour le graphique des stations
-                        stationChart.data.labels = stationLabels;
-                        stationChart.data.datasets[0].data = stationData;
-                        stationChart.update();
-                        
-                        // Extraire et mettre à jour les données de flux de passagers
-                        const { boardings, alightings, stationNames } = calculatePassengerFlow(desserteData);
-                        
-                        // Pour le graphique de flux, nous utilisons les mêmes étiquettes que le graphique de stations
-                        flowChart.data.labels = stationLabels;
-                        flowChart.data.datasets[0].data = boardings;
-                        flowChart.data.datasets[1].data = alightings;
-                        flowChart.update();
-                        
-                        console.log("Données de flux:", { boardings, alightings, stationLabels });
-                        
-                        // Mettre à jour le tableau détaillé
-                        updateTable(desserteData);
-                        
-                        // Afficher les sections de données
-                        kpiSection.style.display = 'flex';
-                        chartsSection.style.display = 'flex';
-                        tableSection.style.display = 'block';
-                        
-                        // Configurer le bouton d'export CSV
-                        exportCsvBtn.onclick = function() {
-                            window.location.href = `/API/exportCSV/${trainNum}&${journeyDate}`;
-                        };
-                        
-                        // Masquer les indicateurs de chargement
-                        hideAllLoaders();
-                    })
-                    .catch(error => {
-                        console.error('Erreur:', error);
-                        hideAllLoaders();
-                        errorAlert.textContent = `Erreur: ${error.message}`;
-                        errorAlert.style.display = 'block';
+                        if (desserte.occupation_rate > maxStationOccupancy) {
+                            maxStationOccupancy = desserte.occupation_rate;
+                            maxStationName = desserte.station_name;
+                        }
                     });
+                    
+                    maxStation.textContent = maxStationName;
+                    maxStationRate.textContent = formatRate(maxStationOccupancy);
+                    
+                    // Mettre à jour le graphique des stations
+                    stationChart.data.labels = stationLabels;
+                    stationChart.data.datasets[0].data = stationData;
+                    stationChart.update();
+                    
+                    // Extraire et mettre à jour les données de flux de passagers
+                    const boardings = [];
+                    const alightings = [];
+                    
+                    // Utiliser les mêmes stations dans le même ordre que pour le graphique d'occupation
+                    desserteData.desserte_occupation.forEach(desserte => {
+                        const flow = flowData.flow_data.find(item => 
+                            item.desserte_code_uic === desserte.desserte_code_uic);
+                        
+                        boardings.push(flow ? flow.boarding : 0);
+                        alightings.push(flow ? flow.alighting : 0);
+                    });
+                    
+                    // Mettre à jour le graphique de flux de passagers
+                    flowChart.data.labels = stationLabels;
+                    flowChart.data.datasets[0].data = boardings;
+                    flowChart.data.datasets[1].data = alightings;
+                    flowChart.update();
+                    
+                    // Mettre à jour la matrice d'occupation voiture/desserte
+                    updateCoachStationChart(desserteData);
+                    
+                    // Mettre à jour le tableau détaillé
+                    updateTable(desserteData, flowData);
+                    
+                    // Afficher les sections de données
+                    kpiSection.style.display = 'flex';
+                    chartsSection.style.display = 'flex';
+                    tableSection.style.display = 'block';
+                    
+                    // Configurer le bouton d'export CSV
+                    exportCsvBtn.onclick = function() {
+                        window.location.href = `gestionnaire/API/exportCSV/${trainNum}&${journeyDate}`;
+                    };
+                    
+                    // Masquer les indicateurs de chargement
+                    hideAllLoaders();
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    hideAllLoaders();
+                    errorAlert.textContent = `Erreur: ${error.message}`;
+                    errorAlert.style.display = 'block';
+                });
             }
             
             // Initialiser avec des valeurs par défaut
-            trainNumber.value = '9577';
-            journeyDate.value = '2024-12-11';
-            
-            // Gestionnaire d'événement pour le formulaire
-            trainForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                loadData(trainNumber.value, journeyDate.value);
-            });
-            
-            // Initialiser les graphiques
-            initializeCharts();
-            
-            // Facultatif: Charger les données par défaut au chargement de la page
-            // loadData('9577', '2024-12-11');
-        });
-    </script>
+           trainNumber.value = '9577';
+           journeyDate.value = '2024-12-11';
+           
+           // Gestionnaire d'événement pour le formulaire
+           trainForm.addEventListener('submit', function(e) {
+               e.preventDefault();
+               loadData(trainNumber.value, journeyDate.value);
+           });
+           
+           // Initialiser les graphiques
+           initializeCharts();
+           
+           // Charger les données par défaut au chargement de la page
+           loadData('9577', '2024-12-11');
+       });
+   </script>
 </body>
 </html>
