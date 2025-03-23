@@ -1,36 +1,15 @@
 # app_bord/views.py
 from django.shortcuts import render
 
-import os, json
+import os
 from django.conf import settings
-from common_utils.utils.json_utils import load_json_file
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from common_utils.utils.json_utils import load_json_file,get_station_name
+from django.shortcuts import  redirect
 
-def index(request):
-    """
-    Page d'accueil pour le BORD
-    """
-    return render(request, 'app_bord/index.html')
-
-def get_station_name(code_uic, stations_data):
-    """
-    Récupère le nom court de la gare à partir du code UIC
-    """
-    for station in stations_data:
-        if station['codeUIC'] == code_uic:
-            return station['shortLabel']
-    return code_uic  # Retourne le code UIC si non trouvé
 
 def home(request):
     """
     Vue de la page d'accueil avec les vignettes de navigation
-    """
-    return render(request, 'app_bord/bord_index.html')
-
-def index(request):
-    """
-    Vue pour afficher le formulaire de consultation d'occupation des places par le BORD
     """
     return render(request, 'app_bord/bord_index.html')
 
@@ -77,4 +56,4 @@ def bord_result(request):
         return render(request, 'app_bord/bord_result.html', context)
     
     # Redirection vers le formulaire en cas d'accès direct à cette URL
-    return redirect('app_bord:bord_index')
+    return redirect('app_bord:home')

@@ -99,14 +99,12 @@ def normalize_json_page(request):
                 # Supprimer le fichier temporaire
                 os.unlink(temp_file_path)
                 
-                # Obtenir la taille finale du fichier
-                final_size = os.path.getsize(stations_file)
+                
                 
                 context['success'] = True
                 context['success_message'] = 'Le fichier a été normalisé avec succès.'
                 context['objects_count'] = objects_count
                 context['original_format'] = original_format
-                context['final_size'] = format_size(final_size)
                 
             except Exception as e:
                 # En cas d'erreur, supprimer le fichier temporaire s'il existe

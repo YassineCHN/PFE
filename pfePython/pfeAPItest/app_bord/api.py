@@ -314,6 +314,7 @@ def get_seat_occupation(seat_number, coach_number, train_number, journey_date, d
         return "Aucune occupation du siège détectée sur l'ensemble du trajet"
     
     # Construire la chaîne de réponse formatée
+    
     formatted_output = ""
     formatted_output += f"seat.coach = {coach_number}\n"
     formatted_output += f"seat.idSeat = {seat_number}\n"

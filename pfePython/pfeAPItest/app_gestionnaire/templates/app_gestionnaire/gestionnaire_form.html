@@ -18,6 +18,7 @@
             max-height: 400px;
             overflow: auto;
         }
+        
     </style>
 </head>
 <body>
@@ -70,8 +71,10 @@
                                     <div class="form-text">Exemples : 87654328 (Limoges), 87594330 (Brive), 87594336 (Toulouse)</div>
                                 </div>
                             </div>
-                            
-                            <button type="submit" class="btn btn-primary">Consulter</button>
+                            {% comment %} On ne laisse pas à l'user le choix de lire les données sur l'UI, que téléchargement 
+                            rechercher puis télécharger le fichier CSV
+                            {% endcomment %}
+                            <button type="submit" class="btn btn-primary" >Rechercher</button>
                         </form>
                         
                         <div id="resultContainer" class="result-container">

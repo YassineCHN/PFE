@@ -193,7 +193,7 @@
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">Détails par desserte</h5>
-                        <button id="export-csv-btn" class="btn btn-sm btn-outline-secondary">Exporter en CSV ATTENTION CA MARCHE PAS !!!!</button>
+                        <button id="export-csv-btn" class="btn btn-sm btn-outline-secondary">Exporter les données brutes en CSV</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -713,7 +713,8 @@
                     
                     // Configurer le bouton d'export CSV
                     exportCsvBtn.onclick = function() {
-                        window.location.href = `gestionnaire/API/exportCSV/${trainNum}&${journeyDate}`;
+                        // Rediriger vers l'API d'export CSV
+                        location.href = `/gestionnaire/API/exportCSV/${trainNum}&${journeyDate}`;
                     };
                     
                     // Masquer les indicateurs de chargement

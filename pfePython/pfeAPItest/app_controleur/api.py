@@ -1,4 +1,7 @@
+import os
 from django.http import HttpResponse
+from django.conf import settings
+from common_utils.utils.json_utils import load_json_file, get_station_name
 
 def get_seat_occupation(seat_number, coach_number, train_number, journey_date, data_folder=None):
     """

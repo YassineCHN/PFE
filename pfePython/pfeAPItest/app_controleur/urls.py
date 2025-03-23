@@ -10,5 +10,4 @@ urlpatterns = [
     re_path(r'^message/occupationSiege/trainId=(?P<numero_train_commercial>[^&]+)&voiture=(?P<numero_voiture>[^&]+)&siege=(?P<numero_siege>[^&]+)&journeyDate=(?P<date_debut_mission>[^&]+)$',
         api.api_occupation_siege, name='api_controleur_message'),
 
-#4
 ]

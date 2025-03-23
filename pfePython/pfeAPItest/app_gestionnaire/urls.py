@@ -1,9 +1,8 @@
 from django.urls import path, re_path
 from . import views
-from . import api
+
 from app_gestionnaire import api as gestionnaire_api
-from app_controleur import api as controleur_api
-from app_bord import api as bord_api
+
 app_name = 'app_gestionnaire'
 urlpatterns = [
     path('', views.gestionnaire_form, name='gestionnaire_form'),

@@ -2,7 +2,7 @@
 import os
 import csv
 from io import StringIO
-from django.http import HttpResponse, JsonResponse,FileResponse
+from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 from common_utils.utils.json_utils import load_json_file, get_station_name
 

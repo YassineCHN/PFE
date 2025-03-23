@@ -1,6 +1,4 @@
 """
-URL configuration for pfeAPItest project.
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
 Examples:
@@ -16,11 +14,9 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include,re_path
-from django.views.generic import RedirectView 
-from app_gestionnaire import api as gestionnaire_api
-from app_controleur import api as controleur_api
-from app_bord import api as bord_api
+from django.urls import path, include
+
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,9 +24,4 @@ urlpatterns = [
     path("controleur/", include("app_controleur.urls")),
     path("gestionnaire/", include("app_gestionnaire.urls")),
     path("", include("common_utils.urls")),  
-   
-    # routes d'API du gestionnaire
-   
-
-    
 ]
