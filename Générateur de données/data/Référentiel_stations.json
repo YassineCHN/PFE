@@ -1,0 +1,182 @@
+[
+  {
+    "codeUIC": "87568228",
+    "label": "Antibes Gare Centrale",
+    "shortLabel": "Antibes..",
+    "longLabel": "Antibes Gare Centrale (Plateforme 4)"
+  },
+  {
+    "codeUIC": "87894820",
+    "label": "Poitiers",
+    "shortLabel": "Poitiers",
+    "longLabel": "Poitiers (Plateforme 4)"
+  },
+  {
+    "codeUIC": "87403684",
+    "label": "Montpellier Gare des Brotteaux",
+    "shortLabel": "Montpell..",
+    "longLabel": "Montpellier Gare des Brotteaux"
+  },
+  {
+    "codeUIC": "87650886",
+    "label": "Tours Gare TGV",
+    "shortLabel": "Tours",
+    "longLabel": "Tours Gare TGV (Plateforme 1)"
+  },
+  {
+    "codeUIC": "87135860",
+    "label": "Le Havre Gare de l'Ouest",
+    "shortLabel": "Le Havre..",
+    "longLabel": "Le Havre Gare de l'Ouest"
+  },
+  {
+    "codeUIC": "87971992",
+    "label": "Dijon Gare Saint-Lazare",
+    "shortLabel": "Dijon..",
+    "longLabel": "Dijon Gare Saint-Lazare"
+  },
+  {
+    "codeUIC": "87245906",
+    "label": "Clermont-Ferrand Gare d'Austerlitz",
+    "shortLabel": "Clermont..",
+    "longLabel": "Clermont-Ferrand Gare d'Austerlitz (Plateforme 5)"
+  },
+  {
+    "codeUIC": "87360949",
+    "label": "Chambéry Gare Saint-Charles",
+    "shortLabel": "Chambéry..",
+    "longLabel": "Chambéry Gare Saint-Charles"
+  },
+  {
+    "codeUIC": "87197334",
+    "label": "Besançon Gare Routière",
+    "shortLabel": "Besançon..",
+    "longLabel": "Besançon Gare Routière"
+  },
+  {
+    "codeUIC": "87463049",
+    "label": "Valence",
+    "shortLabel": "Valence",
+    "longLabel": "Valence"
+  },
+  {
+    "codeUIC": "87590663",
+    "label": "Saint-Étienne",
+    "shortLabel": "Saint-Étienne",
+    "longLabel": "Saint-Étienne"
+  },
+  {
+    "codeUIC": "87306070",
+    "label": "Perpignan Gare Saint-Jean",
+    "shortLabel": "Perpigna..",
+    "longLabel": "Perpignan Gare Saint-Jean (Plateforme 1)"
+  },
+  {
+    "codeUIC": "87590400",
+    "label": "Annecy Gare Saint-Jean",
+    "shortLabel": "Annecy..",
+    "longLabel": "Annecy Gare Saint-Jean"
+  },
+  {
+    "codeUIC": "87855122",
+    "label": "Marseille Gare Part-Dieu",
+    "shortLabel": "Marseill..",
+    "longLabel": "Marseille Gare Part-Dieu"
+  },
+  {
+    "codeUIC": "87910187",
+    "label": "Reims Gare Saint-Jean",
+    "shortLabel": "Reims..",
+    "longLabel": "Reims Gare Saint-Jean"
+  },
+  {
+    "codeUIC": "87631410",
+    "label": "Lille Gare TGV",
+    "shortLabel": "Lille",
+    "longLabel": "Lille Gare TGV"
+  },
+  {
+    "codeUIC": "87626942",
+    "label": "Nice",
+    "shortLabel": "Nice",
+    "longLabel": "Nice"
+  },
+  {
+    "codeUIC": "87830946",
+    "label": "Rennes Gare Montparnasse",
+    "shortLabel": "Rennes..",
+    "longLabel": "Rennes Gare Montparnasse (Plateforme 5)"
+  },
+  {
+    "codeUIC": "87991577",
+    "label": "Saint-Malo",
+    "shortLabel": "Saint-Malo",
+    "longLabel": "Saint-Malo"
+  },
+  {
+    "codeUIC": "87243559",
+    "label": "Cannes Gare Saint-Charles",
+    "shortLabel": "Cannes..",
+    "longLabel": "Cannes Gare Saint-Charles (Plateforme 3)"
+  },
+  {
+    "codeUIC": "87307708",
+    "label": "La Rochelle Gare des Brotteaux",
+    "shortLabel": "La Roche..",
+    "longLabel": "La Rochelle Gare des Brotteaux"
+  },
+  {
+    "codeUIC": "87751859",
+    "label": "Brest Gare de l'Ouest",
+    "shortLabel": "Brest..",
+    "longLabel": "Brest Gare de l'Ouest"
+  },
+  {
+    "codeUIC": "87127656",
+    "label": "Lorient Gare TGV",
+    "shortLabel": "Lorient..",
+    "longLabel": "Lorient Gare TGV"
+  },
+  {
+    "codeUIC": "87227181",
+    "label": "Villeurbanne Gare de Lyon",
+    "shortLabel": "Villeurb..",
+    "longLabel": "Villeurbanne Gare de Lyon"
+  },
+  {
+    "codeUIC": "87809714",
+    "label": "Bordeaux Gare Montparnasse",
+    "shortLabel": "Bordeaux..",
+    "longLabel": "Bordeaux Gare Montparnasse"
+  },
+  {
+    "codeUIC": "87228485",
+    "label": "Toulouse",
+    "shortLabel": "Toulouse",
+    "longLabel": "Toulouse"
+  },
+  {
+    "codeUIC": "87396248",
+    "label": "Troyes Gare Montparnasse",
+    "shortLabel": "Troyes..",
+    "longLabel": "Troyes Gare Montparnasse"
+  },
+  {
+    "codeUIC": "87635343",
+    "label": "Toulon Gare de Lyon",
+    "shortLabel": "Toulon..",
+    "longLabel": "Toulon Gare de Lyon"
+  },
+  {
+    "codeUIC": "87835728",
+    "label": "Nantes",
+    "shortLabel": "Nantes",
+    "longLabel": "Nantes (Plateforme 5)"
+  },
+  {
+    "codeUIC": "87290804",
+    "label": "Caen Gare Routière",
+    "shortLabel": "Caen..",
+    "longLabel": "Caen Gare Routière (Plateforme 2)"
+  }
+]

@@ -504,55 +504,66 @@ def api_taux_occupation_voiture_global(request, numero_train_commercial, date_de
     # Récupérer toutes les dessertes triées par rang
     dessertes = sorted(train_data.get("dessertes", []), key=lambda x: int(x.get("rang", 0)))
     
-    # Dictionnaire pour stocker les données cumulées par voiture
-    coach_data = {}
+    # Structure pour collecter les données par voiture
+    coaches_data = {}
     
-    # Parcourir toutes les dessertes pour accumuler les données d'occupation
+    # Pour chaque desserte, calculer l'occupation par voiture
     for desserte in dessertes:
         for rame in desserte.get("rames", []):
             for voiture in rame.get("voitures", []):
                 coach_number = voiture.get("numero")
                 
-                # Initialiser les données de la voiture si elle n'existe pas encore
-                if coach_number not in coach_data:
-                    coach_data[coach_number] = {
-                        "total_seats_instances": 0,  # Nombre total de sièges × nombre de dessertes
-                        "occupied_seats_instances": 0,  # Nombre total de sièges occupés
-                        "total_seats": len(voiture.get("places", []))  # Nombre de sièges dans la voiture
+                # Initialiser les données de cette voiture si nécessaire
+                if coach_number not in coaches_data:
+                    coaches_data[coach_number] = {
+                        "desserte_rates": [],  # Taux par desserte
+                        "total_seats": 0,      # Nombre de sièges dans la voiture
                     }
                 
-                # Ajouter les données d'occupation pour cette desserte
+                # Compter les sièges et les sièges occupés pour cette desserte
                 total_seats = len(voiture.get("places", []))
                 occupied_seats = sum(1 for place in voiture.get("places", []) 
-                                   if place.get("occupation", {}).get("statut") == "OCCUPE")
+                                    if place.get("occupation", {}).get("statut") == "OCCUPE")
                 
-                coach_data[coach_number]["total_seats_instances"] += total_seats
-                coach_data[coach_number]["occupied_seats_instances"] += occupied_seats
+                # Mettre à jour le nombre total de sièges si non encore défini
+                if coaches_data[coach_number]["total_seats"] == 0:
+                    coaches_data[coach_number]["total_seats"] = total_seats
+                
+                # Calculer le taux d'occupation pour cette desserte
+                desserte_rate = 0
+                if total_seats > 0:
+                    desserte_rate = (occupied_seats / total_seats) * 100
+                
+                # Ajouter ce taux à la liste des taux pour cette voiture
+                coaches_data[coach_number]["desserte_rates"].append(desserte_rate)
     
-    # Calculer les taux d'occupation moyens
+    # Préparer les résultats
     coaches_result = []
-    total_occupied = 0
-    total_seats = 0
+    all_average_rates = []
     
-    for coach_number, data in sorted(coach_data.items(), key=lambda x: int(x[0])):
+    for coach_number, data in sorted(coaches_data.items(), key=lambda x: int(x[0])):
+        # Calculer le taux moyen en faisant la moyenne des taux par desserte
         average_rate = 0
-        if data["total_seats_instances"] > 0:
-            average_rate = (data["occupied_seats_instances"] / data["total_seats_instances"]) * 100
+        if data["desserte_rates"]:
+            average_rate = sum(data["desserte_rates"]) / len(data["desserte_rates"])
         
-        coaches_result.append({
+        # Compter les instances où cette voiture a été occupée au moins une fois
+        times_occupied = sum(1 for rate in data["desserte_rates"] if rate > 0)
+        
+        coach_result = {
             "coach_number": coach_number,
             "average_occupation_rate": round(average_rate, 1),
             "total_seats": data["total_seats"],
-            "times_occupied": data["occupied_seats_instances"]
-        })
+            "times_occupied": times_occupied
+        }
         
-        total_occupied += data["occupied_seats_instances"]
-        total_seats += data["total_seats_instances"]
+        coaches_result.append(coach_result)
+        all_average_rates.append(average_rate)
     
-    # Calculer la moyenne globale
+    # Calculer la moyenne globale de toutes les voitures
     global_average = 0
-    if total_seats > 0:
-        global_average = (total_occupied / total_seats) * 100
+    if all_average_rates:
+        global_average = sum(all_average_rates) / len(all_average_rates)
     
     result = {
         "train_number": numero_train_commercial,

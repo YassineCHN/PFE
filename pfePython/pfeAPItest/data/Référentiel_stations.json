@@ -1,11 +1,5 @@
 [
   {
-    "codeUIC": "455646546456",
-    "label": "TEST",
-    "shortLabel": "TEST",
-    "longLabel": "TEST"
-  },
-  {
     "codeUIC": "87654321",
     "label": "Paris Austerlitz",
     "shortLabel": "Paris Auster",
@@ -102,69 +96,9 @@
     "longLabel": "Toulouse Matabiau"
   },
   {
-    "codeUIC": "87547000",
-    "label": "TEST",
-    "shortLabel": "TESTAZEAZ",
-    "longLabel": "TEST"
-  },
-  {
-    "codeUIC": "87611004",
-    "label": "FIN",
-    "shortLabel": "FIN",
-    "longLabel": "FIN"
-  },
-  {
-    "codeUIC": "87391003",
-    "label": "Paris Montparnasse",
-    "shortLabel": "Paris-Montp.",
-    "longLabel": "Paris Montparnasse 1 et 2"
-  },
-  {
-    "codeUIC": "87394007",
-    "label": "Massy TGV",
-    "shortLabel": "Massy TGV",
-    "longLabel": "Massy TGV"
-  },
-  {
-    "codeUIC": "87396002",
-    "label": "Versailles Chantiers",
-    "shortLabel": "Versailles",
-    "longLabel": "Versailles Chantiers"
-  },
-  {
-    "codeUIC": "87515286",
-    "label": "Saint-Pierre-des-Corps",
-    "shortLabel": "St-Pierre",
-    "longLabel": "Saint-Pierre-des-Corps"
-  },
-  {
-    "codeUIC": "87575001",
-    "label": "Tours",
-    "shortLabel": "Tours",
-    "longLabel": "Tours"
-  },
-  {
-    "codeUIC": "87571000",
-    "label": "Poitiers",
-    "shortLabel": "Poitiers",
-    "longLabel": "Poitiers"
-  },
-  {
-    "codeUIC": "87583005",
-    "label": "Angoulême",
-    "shortLabel": "Angoulême",
-    "longLabel": "Angoulême"
-  },
-  {
-    "codeUIC": "87581009",
-    "label": "Libourne",
-    "shortLabel": "Libourne",
-    "longLabel": "Libourne"
-  },
-  {
-    "codeUIC": "87581008",
-    "label": "Bordeaux Saint-Jean",
-    "shortLabel": "Bordeaux",
-    "longLabel": "Bordeaux Saint-Jean"
+    "codeUIC": "87594337",
+    "label": "Souillac TEST ",
+    "longLabel": "SouillacTEST ",
+    "shortLabel": "TEST"
   }
 ]

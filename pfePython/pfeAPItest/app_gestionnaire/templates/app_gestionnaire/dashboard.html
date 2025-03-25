@@ -622,6 +622,7 @@
                     
                     // Si l'API dédiée est disponible, utiliser ses données
                     if (coachGlobalData) {
+                        console.log(coachGlobalData);
                         coachGlobalData.coaches.forEach(coach => {
                             coachLabels.push(`Voiture ${coach.coach_number}`);
                             coachData.push(coach.average_occupation_rate);
